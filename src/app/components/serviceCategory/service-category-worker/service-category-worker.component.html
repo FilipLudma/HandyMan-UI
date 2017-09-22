@@ -1,0 +1,150 @@
+<!--service-category-img-container-->
+<div class="jumbotron service-category-detail">
+  <div class="service-category-img-container">
+    <!--<img src="../../../../images/ServiceCategories/CategoryWorker.png" alt="Image" class="img-fluid img-circle img-thumbnail category-main-img">-->
+    <img src="../../../../images/OccupationImages/builder.png" alt="Image" class="img-fluid img-circle img-thumbnail category-main-img">
+  </div>
+</div>
+
+<div class="container-fluid service-catergory-container">
+
+  <!--HOW IT WORKS-->
+  <app-service-category-how-it-works class="how-it-works"></app-service-category-how-it-works>
+  <!--END HOW IT WORKS-->
+
+  <div class="col-sm-8 service-category-group">
+    <!--FIRST-->
+    <div #testAnchor class="row service-category-row">
+
+      <div class="service-category-img" (click)='createOrderWithCategory()'>
+        <img src="../../../../images/OccupationImages/builder.png" alt="Image" class="img-fluid img-circle img-thumbnail category-worker-img">
+      </div>
+      <div class="col-lg-8">
+        <div class="sub-category-container">
+          <h3 class="sub-category-title" (click)='createOrderWithCategory()'>Pod kategoria 1</h3>
+          <p class="sub-category-description" (click)='createOrderWithCategory()'>
+            Aliquam dapibus felis fringilla ligula mittis, ut congue purus gravida. Suspendisse suscipit tellus id odio mollis, id tincidunt
+            metus gravida. Ut at arcu in elit maximus eleifend. Pokracuj kliknutim...</p>
+
+          <label class="sub-category-rating-label" (click)='myPopOver.show($event)'>Zobraz hodnotenia: 
+            <i class="fa fa-star fa-2" aria-hidden="true"></i>
+            <i class="fa fa-star fa-2" aria-hidden="true"></i>
+            <i class="fa fa-star fa-2" aria-hidden="true"></i>
+          </label>
+
+          <!--<span [pop-over-trigger]="myPopOver" [show-on]="'click($event)'" [hide-on]="'mouseleave,click'">help</span>-->
+          <pop-over #myPopOver [anchor-to]="testAnchor" [x-offset]="5" [y-offset]="5">
+            <!--(mouseleave)='myPopOver.hide()'-->
+            <div class="my-pop-over" (click)='myPopOver.hide()'>
+              <h3 class="sub-category-rating-title" (click)='createOrderWithCategory()'>Pod kategoria 1</h3>
+              <!--Ratings 1-->
+              <div class="service-category-rating-container">
+                <div>
+                  <rating [(ngModel)]="starsCount" [readonly]="true" [float]="true" [titles]="['one', 'two', 'three', 'four', 'five']">>
+                  </rating>
+
+                  <div class="service-category-wrapper">
+                    <div class="service-category-rating">
+                      <div>"I have only been using this service for less then a week and love. It's great for my business."</div>
+                      <div style="font-weight:bold;margin-top:3px;">TOYZ-4-ALL</div>
+                      <div>June 24th, 2015</div>
+                    </div>
+                    <div class="service-rating-img">
+                      <img class="ratings-img" src="../../../../images/Common/review_recommended_64.png" alt="Image">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <hr>
+
+              <!--Ratings 2-->
+              <div class="service-category-rating-container">
+                <div>
+                  <rating [(ngModel)]="starsCount" [readonly]="true" [float]="true" [titles]="['one', 'two', 'three', 'four', 'five']">>
+                  </rating>
+
+                  <div class="service-category-wrapper">
+                    <div class="service-category-rating">
+                      <div>"I have only been using this service for less then a week and love. It's great for my business."</div>
+                      <div style="font-weight:bold;margin-top:3px;">TOYZ-4-ALL</div>
+                      <div>June 24th, 2015</div>
+                    </div>
+                    <div class="service-rating-img">
+                      <img class="ratings-img" src="../../../../images/Common/review_recommended_64.png" alt="Image">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <hr>
+
+              <!--Ratings 3-->
+              <div class="service-category-rating-container">
+                <div>
+                  <rating [(ngModel)]="starsCount" [readonly]="true" [float]="true" [titles]="['one', 'two', 'three', 'four', 'five']">>
+                  </rating>
+
+                  <div class="service-category-wrapper">
+                    <div class="service-category-rating">
+                      <div>"I have only been using this service for less then a week and love. It's great for my business."</div>
+                      <div style="font-weight:bold;margin-top:3px;">TOYZ-4-ALL</div>
+                      <div>June 24th, 2015</div>
+                    </div>
+                    <div class="service-rating-img">
+                      <img class="ratings-img" src="../../../../images/Common/review_recommended_64.png" alt="Image">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </pop-over>
+
+        </div>
+      </div>
+    </div>
+
+    <!--SECOND-->
+    <div class="row service-category-row">
+      <div class="service-category-row">
+        <div class="service-category-child2">
+          <img src="../../../../images/OccupationImages/builder.png" alt="Image" class="img-fluid img-circle img-thumbnail category-worker-img">
+        </div>
+        <div class="service-category-child1">
+          <div class="tm-media-text-container">
+            <h3 class="tm-media-title tm-gray-text">Pod kategoria 2</h3>
+            <p class="tm-media-description tm-gray-text-2">Aliquam dapibus felis fringilla ligula mittis, ut congue purus gravida. Suspendisse suscipit tellus id odio mollis,
+              id tincidunt metus gravida. Ut at arcu in elit maximus eleifend.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!--THIRD-->
+    <div class="row service-category-row">
+      <div class="service-category-img">
+        <img src="../../../../images/OccupationImages/builder.png" alt="Image" class="img-fluid img-circle img-thumbnail category-worker-img">
+      </div>
+      <div class="service-category-text">
+        <div class="tm-media-text-container">
+          <h3 class="tm-media-title tm-gray-text">Pod kategoria 3</h3>
+          <p class="tm-media-description tm-gray-text-2">Aliquam dapibus felis fringilla ligula mittis, ut congue purus gravida. Suspendisse suscipit tellus id odio mollis,
+            id tincidunt metus gravida. Ut at arcu in elit maximus eleifend.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+  </div>
+  <!--<star-rating-comp [starType]="'svg'" [rating]="2.63"></star-rating-comp>-->
+
+  <div #popOver4Target class="test">
+    <div class="service-category-img">
+      <img src="../../../../images/OccupationImages/builder.png" alt="Image" class="img-fluid img-circle img-thumbnail">
+      <img src="../../../../images/OccupationImages/builder.png" alt="Image" class="img-fluid img-circle img-thumbnail">
+      <img src="../../../../images/OccupationImages/builder.png" alt="Image" class="img-fluid img-circle img-thumbnail">
+      <img src="../../../../images/OccupationImages/builder.png" alt="Image" class="img-fluid img-circle img-thumbnail">
+    </div>
+  </div>
+</div>

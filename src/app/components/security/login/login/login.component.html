@@ -1,0 +1,30 @@
+<!-- modal -->
+<!--*ngIf="!checkIfloggedIn()"-->
+<!--*ngIf="!checkIfloggedIn()"-->
+<modal #loginModal [hideCloseButton]="true" class="loginModal">
+  <modal-header>
+    <h2>Prihlasenie: </h2>
+  </modal-header>
+
+  <modal-content>
+    <form #f="ngForm" (ngSubmit)="onLogin(f.value, f.valid)">
+      <div>
+        <input type="text" placeholder="username" name="username" [(ngModel)]="credentials.username" #username="ngModel" required
+          minlength="4">
+        <!--show error only when field is not valid & it's dirty or form submited-->
+        <small [hidden]="username.valid || (username.pristine && !f.submitted)">
+          UserName is required (minimum 5 characters).
+        </small>
+      </div>
+      <div>
+        <input type="password" placeholder="password" name="password" [(ngModel)]="credentials.password" #password="ngModel" required>
+        <small [hidden]="password.valid || (password.pristine && !f.submitted)" class="text-danger">
+          Password is required.
+        </small>
+      </div>
+      <div>
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </modal-content>
+</modal>

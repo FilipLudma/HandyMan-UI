@@ -1,0 +1,18 @@
+<div class="col-sm-4">
+  <div class="box box-services" (click)='redirectToDetail()'>
+    <div class="icon">
+      <div class="tp-wrapper">
+        <div class="tp-box" (mouseenter)="toggleFlip()" (mouseleave)="toggleFlip()" [@flipState]="flip">
+          <div class="tp-box__side">
+            <img src={{imgSrc}}><img>
+          </div>
+          <div class="tp-box__side tp-box__back">
+            <p>Dozvediet sa viac</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h4 class="heading-description-services">Pracant</h4>
+    <p>Fifth abundantly made Give sixth hath. Cattle creature i be don't them.</p>
+  </div>
+</div>

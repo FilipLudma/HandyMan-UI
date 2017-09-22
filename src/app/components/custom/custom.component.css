@@ -1,0 +1,104 @@
+.content-how-it-works{
+    width: 50%;
+    align-items: center;
+}
+
+.how-it-works {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-bottom: 2.0rem;
+    margin-left: 10%;
+}
+
+.how-it-works-img {
+    width: 50%;
+}
+
+.content-left{
+    margin-left: 10%;
+    margin-bottom: 15%;
+}
+
+.content-right{
+    margin-right: 10%;
+    margin-bottom: 15%;
+}
+
+.how-it-works-label {
+    color: #86919d;
+    font-size: 2.0rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    border: 1px solid #86919d;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.how-it-works-name {
+    font-size: 1.9rem;
+    margin-bottom: 1rem;
+}
+
+.how-it-works-description {
+    font-size: 1.4rem;
+}
+
+.step_1{
+    width: 70%;
+}
+
+.step_3{
+    width: 70%;
+    margin-top: -6%;
+}
+
+.step_2{
+    margin-top: -6%;
+}
+
+.step_4{
+    margin-top: -3%;
+}
+
+.step_2, .step_4{
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -webkit-flex-direction: row-reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+    text-align: right;
+    width: 70%;
+    margin-left: 10%;
+}
+
+.step_1 .how-it-works-label, .step_3 .how-it-works-label{
+    margin-left: inherit;
+}
+.step_2 .how-it-works-label, .step_4 .how-it-works-label{
+    margin-right: inherit;
+}
+
+

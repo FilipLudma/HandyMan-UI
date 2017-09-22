@@ -1,0 +1,48 @@
+<div class="container-address">
+  <h1 class="address-title">Zadajte adresu na ktorej potrebujete pomôcť</h1>
+  <hr>
+  <div class="address-user-description">
+    <p>Radi by sme Vám boli k dispozícii čo najskôr, preto prosím zadajte presnú adresu, na ktorej Vás nájdeme.</p>
+  </div>
+
+  <form [formGroup]="myForm" novalidate (ngSubmit)="continue(myForm.value, myForm.valid)">
+
+    <div class="address-input">
+      <small class="address-alert alert alert-danger" [hidden]="myForm.controls.address.valid || (myForm.controls.address.pristine && !submitted)">
+        Prosim vyplnte adresu
+      </small>
+      <input type="text" class="form-control address-input" placeholder="Zadaj adresu..." autocorrect="off" autocapitalize="off"
+        spellcheck="off" #search formControlName="address">
+    </div>
+
+    <sebm-google-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+      <sebm-google-map-marker [latitude]="latitude" [longitude]="longitude"></sebm-google-map-marker>
+    </sebm-google-map>
+
+    <div class="stepper-actions">
+      <a class="btn btn-default btn-lg btn-simple mbn" (click)="back()">Spať</a>
+      <!--<a class="btn btn-info btn-lg btn-simple pull-right mbn" (click)="continue()">Pokračovať</a>-->
+      <button class="btn btn-info btn-lg btn-simple pull-right mbn" type="submit">Pokračovať</button>
+    </div>
+  </form>
+</div>
+
+
+<modal #infoModal [hideCloseButton]="true" class="infoModal">
+  <modal-header>
+    <div class="infoModal-center">
+      <img src="../../../images/Emoticons/sad.png" />
+    </div>
+  </modal-header>
+
+  <modal-content>
+    <div class="infoModal-center infoModal-content">
+      <h3>Ospravedlňujeme sa, ale momentálne sme Vám k dispozícii len v Bratislave a jej okolí.</h3>
+    </div>
+  </modal-content>
+  <modal-footer>
+    <div class="infoModal-center">
+      <button class="btn" (click)="infoModal.close()">Rozumiem</button>
+    </div>
+  </modal-footer>
+</modal>

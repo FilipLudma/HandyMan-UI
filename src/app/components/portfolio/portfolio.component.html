@@ -1,0 +1,34 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="heading">Portfolio</h2>
+      <p class="text-center">You can make also a portfolio or image gallery.</p>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row no-space portfolio-container">
+    <div class="col-sm-4 col-md-3 portfolio-image-box" *ngFor="let image of images">
+      <div class="image">
+        <a title="">
+          <img src="{{image}}" (click)="myModal.open()" alt="" class="img-responsive portfolio-box">
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- modal -->
+  <modal #myModal [hideCloseButton]="true" class="carouselModal">
+      <modal-header>
+        <h2>Project photos: </h2>
+      </modal-header>
+      <modal-content>
+          <app-carousel></app-carousel>
+      </modal-content>
+      <modal-footer>
+          <button class="btn btn-primary" (click)="myModal.close()">close</button>
+      </modal-footer>
+  </modal>
+
+</div>
+

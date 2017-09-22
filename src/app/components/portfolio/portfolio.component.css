@@ -1,0 +1,25 @@
+.portfolio-box{
+    cursor: pointer;
+}
+
+.carouselModal{
+    min-width: 700px;
+}
+
+.box img{
+  width: 100%;
+  max-height: 300px;
+  }
+
+.portfolio-image-box {
+    padding-left: 0.5% !important;
+    padding-right: 0.8% !important;
+    margin-bottom: 0.8% !important;
+}
+
+.portfolio-container{
+    width: 90%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

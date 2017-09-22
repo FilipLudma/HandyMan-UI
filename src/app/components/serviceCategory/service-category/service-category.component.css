@@ -1,0 +1,15 @@
+/*:host(.navbar){
+    margin-bottom: 0px;
+}*/
+
+:host-context(.test)  {
+    margin-bottom: 0px;
+}
+
+>>> app-header.service-category-header .navbar {
+    margin-bottom: 0px;
+}  
+
+>>> app-header.service-category-header .nav {
+    visibility: hidden;
+}  

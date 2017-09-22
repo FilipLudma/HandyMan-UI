@@ -1,0 +1,35 @@
+<!--HEADER-->
+<app-header></app-header>
+<!--BODY-->
+<div class="container">
+    <div class="stepper">
+        <div class="stepper-steps">
+            <div [routerLink]="['adresa']" [class]="stepOneStatus" (click)="resetDescription()">
+                <div class="stepper-stepContent">
+                    <span class="stepper-stepMarker">1</span>Adresa
+                </div>
+            </div>
+            <div [routerLink]="['/novaPorucha/popis']" [class]='stepTwoStatus'>
+                <div class="stepper-stepContent">
+                    <span class="stepper-stepMarker">2</span>Popis problému
+                </div>
+            </div>
+            <div [routerLink]="['/novaPorucha/kontaktneInformacie']" [class]='stepThreeStatus'>
+                <div class="stepper-stepContent">
+                    <span class="stepper-stepMarker">3</span>Kontaktné informacie
+                </div>
+            </div>
+            <div [class]='stepFourStatus'>
+                <div class="stepper-stepContent">
+                    <span class="stepper-stepMarker">4</span>Potvrdenie
+                </div>
+            </div>
+        </div>
+
+        <div class="stepper-content">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+<!--FOOTER-->
+<app-footer></app-footer>

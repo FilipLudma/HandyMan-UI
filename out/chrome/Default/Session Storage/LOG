@@ -1,0 +1,18 @@
+2017/05/27-15:34:46.687 12060 Reusing MANIFEST c:\Users\marti\Desktop\Filo\Projects\HandyMan\HandyMan\out\chrome\Default\Session Storage/MANIFEST-000001
+2017/05/27-15:34:46.691 12060 Recovering log #12
+2017/05/27-15:34:46.691 12060 Reusing old log c:\Users\marti\Desktop\Filo\Projects\HandyMan\HandyMan\out\chrome\Default\Session Storage/000012.log 
+2017/05/27-15:36:46.687 6748 Level-0 table #16: started
+2017/05/27-15:36:46.699 6748 Level-0 table #16: 77560 bytes OK
+2017/05/27-15:36:46.705 6748 Delete type=0 #12
+2017/05/27-16:43:55.773 6748 Level-0 table #18: started
+2017/05/27-16:43:55.778 6748 Level-0 table #18: 74111 bytes OK
+2017/05/27-16:43:55.781 6748 Delete type=0 #15
+2017/05/27-16:43:55.782 6748 Compacting 4@0 + 1@1 files
+2017/05/27-16:43:55.789 6748 Generated table #19@0: 165 keys, 77095 bytes
+2017/05/27-16:43:55.789 6748 Compacted 4@0 + 1@1 files => 77095 bytes
+2017/05/27-16:43:55.794 6748 compacted to: files[ 0 1 1 0 0 0 0 ]
+2017/05/27-16:43:55.794 6748 Delete type=2 #7
+2017/05/27-16:43:55.795 6748 Delete type=2 #9
+2017/05/27-16:43:55.795 6748 Delete type=2 #13
+2017/05/27-16:43:55.795 6748 Delete type=2 #16
+2017/05/27-16:43:55.796 6748 Delete type=2 #18

@@ -1,0 +1,45 @@
+img { max-width: 100%; }
+
+.address-title{
+    margin-bottom: 3%;
+}
+
+.sebm-google-map-container {
+    height: 300px;
+    filter: grayscale(100%);
+}
+
+.stepper-actions{
+    margin-top: 25px;
+}
+
+.address-input{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.address-input .ng-valid, .ng-valid.required  {
+  border-left: 10px solid #42A948; /* green */
+}
+
+.ng-invalid:not(form)  {
+  border-left: 10px solid #a94442; /* red */
+}
+
+.infoModal-center{
+    margin: auto;
+    display: table;
+}
+
+.ng-invalid .address-alert{
+    /*display: flex;*/
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-top: 15px;
+    margin-bottom: 45px;
+    padding: 5px 10px 5px 10px;
+}
+
+.infoModal-content{
+    text-align: center;
+}

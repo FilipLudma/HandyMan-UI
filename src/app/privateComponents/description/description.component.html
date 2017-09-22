@@ -1,0 +1,120 @@
+<div class="container-description">
+  <!--TITLE-->
+  <h1 class="description-title">Vytvorte popis Vášho problému</h1>
+  <hr>
+  <div class="row container">
+    <div class="alert alert-danger">
+      <p> Opat treba vymysliet popis pre zakaznika, aby vedel co treba a co netreba vyplnit.</p>
+    </div>
+    <ng-template [ngIf]="displayDescriptionSection">
+      <div class="form-group description-form price-wrapper" [@fadeInOut]>
+        <label for="subCategory">Odhadovana cena:</label>
+        <div class="service-price">
+          <p>{{price}}</p>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+
+  <!--DESCRIPTION FORM-->
+  <form #descriptionForm="ngForm">
+    <div class="category">
+      <div class="description-margin row">
+        <h4>Kategória:</h4>
+      </div>
+
+      <!--CATEGORIES-->
+      <div class="row">
+        <div class="categories1" *ngFor="let category of categories; let ind = index">
+          <input type="radio" name="radio" id="categoryType{{ind}}" class="radio" [value]="category.categoryType" (click)=showCategory([category.categoryType])/>
+          <label for="categoryType{{ind}}">{{category.categoryName}}</label>
+        </div>
+      </div>
+
+      <!--CATEGORIES DESCRIPTION-->
+      <div class="row" *ngFor="let category of categories; let ind = index">
+        <ng-template [ngIf]="category.categoryType == displayCategory">
+          <div class="alert alert-info categoryInfo categoryTypeAdjustment">
+            <strong>Info!{{ind}}</strong> Indicates a neutral informative change or action.
+          </div>
+        </ng-template>
+      </div>
+      <hr>
+
+      <!--SUBCATEGORIES-->
+      <div class="subCategoriesContainer container">
+        <ng-template [ngIf]="displaySubCategorySection">
+          <div class="description-margin row" [@fadeInOut]>
+            <h4>Druh problemu:</h4>
+          </div>
+        </ng-template>
+        <div class="row col-md-12 categoryType{{category.categoryType}}" *ngFor="let category of categories; let ind = index">
+          <ng-template [ngIf]="category.categoryType == displayCategory">
+            <div class="subcategory col-md-4" *ngFor="let subCategory of category.orderSubCategories" [@fadeInOut]>
+              <input type="radio" name="subRadio" id="subcategory{{subCategory.orderSubCategoryID}}" [value]="subCategory.subCategoryName"
+                (click)=showSubCategory([subCategory.subCategoryName])/>
+              <label class="subcategoryLabel" for="subcategory{{subCategory.orderSubCategoryID}}">{{subCategory.subCategoryName}}</label>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+      <hr>
+    </div>
+
+    <!--SUBCATEGORY DESCRIPTION-->
+    <div class="subCategory-description">
+      <div class="categoryType{{category.categoryType}}" *ngFor="let category of categories; let ind = index">
+        <div class="row" *ngFor="let subCategory of category.orderSubCategories">
+          <ng-template [ngIf]="subCategory.subCategoryName == displaySubCategory">
+            <div class="alert alert-info categoryInfo" [@fadeInOut]>
+              <strong>{{subCategory.subCategoryName}}</strong> Indicates a neutral informative change or action.
+            </div>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+
+    <!--DESCRIPTION SECTION-->
+    <ng-template [ngIf]="displayDescriptionSection">
+      <div class="container description-attachments" [@fadeInOut]>
+        <hr>
+        <div class="description-reminder">
+          <h4>Prosíme vyplnte aspon jednu z uvedennych kategorii nizšie:</h4>
+        </div>
+        <!--DESCRIPTION-->
+        <div class="description-wrapper">
+          <div class="description-switch-wrapper">
+            <label for="description-attachment-switch">Pridat popis problému:</label>
+            <ui-switch class="description-toggle" [(ngModel)]="addDescription" name="addDescription" size="small"></ui-switch>
+          </div>
+          <div class="description-container" *ngIf="addDescription" [@fadeInOut]>
+            <span for="description">Stručne popíšte Váš problém</span>
+            <textarea class="description-text" id="description" rows="3" cols="50" placeholder="Vložte text..." [(ngModel)]="model.description"
+              name="description">
+          </textarea>
+            <hr>
+          </div>
+        </div>
+
+        <!--ATTACHMENTS-->
+        <div class="description-image-wrapper">
+          <div class="description-switch-wrapper">
+            <label for="description-switch"> Pridat fotku </label>
+            <ui-switch class="description-toggle" [(ngModel)]="addAttachment" name="addAttachment" size="small"></ui-switch>
+          </div>
+          <div class="attachment-container" *ngIf="addAttachment" [@fadeInOut]>
+            <app-image-upload></app-image-upload>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+
+  </form>
+  <!--END DESCRIPTION FORM-->
+
+  <!--NAVIGATION BUTTONS-->
+  <div class="stepper-actions">
+    <a class="btn btn-default btn-lg btn-simple mbn" (click)="back()">Spať</a>
+    <a class="btn btn-info btn-lg btn-simple pull-right mbn" (click)="continue()">Pokračovať</a>
+  </div>
+</div>
