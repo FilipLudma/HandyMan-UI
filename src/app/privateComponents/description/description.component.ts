@@ -7,9 +7,11 @@ import { NewOrderComponent } from '../new-order/new-order.component'
 import { OrderRequest } from '../../models/order/OrderRequest'
 import { CategoryService } from '../../services/category/category.service';
 import { CategoryModel } from "app/models/categoryModel";
+import { OrderModel } from "app/models/order/orderModel";
 
 import { AccordionModule } from "ng2-accordion";
 import { SubCategoryModel } from "app/models/subCategoryModel";
+import { ImgAttachment } from 'app/models/order/imgAttachment';
 
 @Component({
   selector: 'app-description',
@@ -31,12 +33,14 @@ import { SubCategoryModel } from "app/models/subCategoryModel";
 export class DescriptionComponent implements OnInit {
 
   private sub;
-  private id: String;
+  private id: string;
+
   public categories: CategoryModel[];
   public subCategories: SubCategoryModel[];
   public displayCategory: number = 0;
   public displaySubCategory: string = "";
-  
+  public orderModel: OrderModel = new OrderModel;
+
   public displaySubCategorySection: boolean = false;
   public displayDescriptionSection: boolean = false;
 
@@ -71,27 +75,22 @@ export class DescriptionComponent implements OnInit {
     this.addAttachment = !this.addAttachment;
   }
 
-  public changePrice(newValue) {
-    switch (newValue) {
-      case "Zahradka":
-        this.price = "150-200euro";
-        break;
-      case "Stahovanie":
-        this.price = "200-250euro";
-        break;
-      case "Upratovanie":
-        this.price = "250-300euro";
-        break;
-    }
-
-    // this.price = "200-300euro";
-  }
-
   public activateClass(subModule) {
     subModule.active = !subModule.active;
   }
 
   public continue() {
+    this.orderModel.id = this.id;
+    this.orderModel.price = this.price;
+    this.orderModel.subCategory = this.displaySubCategory.toString();
+
+    if (this.categories != undefined) {
+      var categoryIndex = this.categories.findIndex(x => x.categoryType == this.displayCategory);
+      if (categoryIndex > 0) {
+        this.orderModel.category = this.categories[categoryIndex].categoryName;
+      }
+    }
+    
     this.router.navigate(['/novaPorucha/kontaktneInformacie', this.id]);
     this.parentComponent.stepTwoStatus = "stepper-step stepper-step-isValid";
     this.parentComponent.stepThreeStatus = "stepper-step stepper-step-isActive";
@@ -102,14 +101,14 @@ export class DescriptionComponent implements OnInit {
     this.parentComponent.stepTwoStatus = "stepper-step";
   }
 
-  public showCategory(val){
+  public showCategory(val) {
     this.displayCategory = val;
     this.displaySubCategory = "";
     this.displaySubCategorySection = true;
     this.displayDescriptionSection = false;
   }
 
-  public showSubCategory(val){
+  public showSubCategory(val) {
     this.displaySubCategory = val;
     this.displayDescriptionSection = true;
   }

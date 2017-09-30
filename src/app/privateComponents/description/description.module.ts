@@ -13,7 +13,7 @@ import { AccordionModule } from "ng2-accordion";
 import { UiSwitchModule } from '../../../../node_modules/angular2-ui-switch/src';
 
 import { DescriptionComponent } from './description.component';
-import { ImgUploadComponent } from '../img-upload/img-upload.component';
+// import { ImgUploadComponent } from '../img-upload/img-upload.component';
 
 @NgModule({
   imports: [

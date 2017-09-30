@@ -1,0 +1,29 @@
+input.ng-valid[required] {
+  border-left: 5px solid #42A948 !important;
+}
+
+input.ng-invalid {
+  border-left: 5px solid #a94442;
+}
+
+.error{
+    padding: 12px;
+    background-color: rgba(255, 0, 0, 0.2);
+    color: red;
+  }
+
+  .owl-timer-control .icon {
+    color: #111111;
+}
+
+input, .input-control{
+  margin-bottom: 15px;
+}
+
+.input-control{
+  cursor: pointer;
+}
+
+.contact-details-info{
+  width: 25%;
+}

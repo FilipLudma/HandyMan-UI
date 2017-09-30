@@ -7,7 +7,7 @@ import { MapsAPILoader } from "angular2-google-maps/core";
 
 import { OrderService } from '../../services/order/order.service';
 import { OrderObjectService } from '../../services/order/order-object.service';
-import { OrderModel } from "app/models/orderModel";
+import { OrderModel } from "app/models/order/orderModel";
 
 import { NewOrderComponent } from '../new-order/new-order.component'
 

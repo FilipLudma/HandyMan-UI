@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OrdersService } from './orders.service';
-import { OrderModel } from '../../models/orderModel';
+import { OrderModel } from '../../models/order/orderModel';
 
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../../app/components/security/auth.service'

@@ -1,70 +1,13 @@
-<div class="container">
-  <div class="row">
-    <!--SELECT FILE-->
-    <div class="row">
-      <span class="upload-btn-label"> Vyberte prilohu: </span>
-      <label for="file-upload" class="custom-file-upload">
-          <i class="fa fa-cloud-upload"></i> Custom Upload
-      </label>
-      <input id="file-upload" type="file" ng2FileSelect [uploader]="uploader" (click)="logger()" multiple />
-    </div>
+<div>
+  <input type="file" accept="image/*" (change)="changeListener($event)">
+</div>
 
-    <div class="row" style="margin-bottom: 40px">
-      <span>Zoznam suborov na prilozenie:</span>
-      <div *ngFor="let item of uploader.queue" class="media">
-        <div class="media-left">
-          <!--<img src="" imgPreview [image]="item?._file" class="media-object" />-->
-        </div>
-        <div class="media-body">
-          <p>{{ item?.file?.name }}</p>
-        </div>
-        <div class="image-upload-preview" style="display:flex">
-          <app-carousel></app-carousel>
-        </div>
-      </div>
-
-      <!--<table class="table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Size</th>
-            <th>Progress</th>
-            <th>Status</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let item of uploader.queue">
-            <td><strong onchange="logger(item)">{{ item?.file?.name }}</strong></td>
-            <td></td>
-            <td *ngIf="uploader.isHTML5" nowrap>{{ item?.file?.size/1024/1024 | number:'.2' }} MB</td>
-            <td class="text-center">
-              <span *ngIf="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
-              <span *ngIf="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
-              <span *ngIf="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
-            </td>
-            <td nowrap>
-              <button type="button" class="btn btn-danger btn-xs" (click)="item.remove()">
-                <span class="glyphicon glyphicon-trash"></span> Remove
-              </button>
-            </td>
-            <img [src]="filePreviewPath" width="200" *ngIf="filePreviewPath" />
-          </tr>
-
-        </tbody>
-      </table>-->
-
-      <!--<div>
-        <div>
-          Queue progress:
-          <div class="progress" style="">
-            <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
-          </div>
-        </div>
-        <button type="button" class="btn btn-danger btn-s" (click)="uploader.clearQueue()" [disabled]="!uploader.queue.length">
-          <span class="glyphicon glyphicon-trash"></span> Remove all
-        </button>
-      </div>-->
+<div class="column has-text-centered">
+  <div class="img-row" *ngFor="let image of _albums; let i=index">
+    <div class="img-attachment">
+      <img class="img-frame" [src]="image.thumb" [name]="image.caption" (click)="open(i)" />
+      <i class="img-delete-icon fa large fa-trash" aria-hidden="true" (click)="removeImg($event)"></i>
     </div>
   </div>
+
 </div>

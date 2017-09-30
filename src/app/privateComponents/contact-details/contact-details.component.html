@@ -2,37 +2,63 @@
   <!--TITLE-->
   <h1 class="description-title">Vyplnte kontaktné informácie</h1>
   <hr>
-  <!--DESCRIPTION FORM-->
-  <form #descriptionForm="ngForm">
-    <!--CONTACT DETAILS-->
-    <div class="contact-details">
-      <div class="row">
-        <label>Kontaktna osoba:</label>
-      </div>
-      <div class="row">
-        <div class="form-group description-mobile">
-          <label for="mobileNumber">Meno:</label>
-          <input type="text" class="form-control" id="firstName" name="firstName">
-        </div>
-        <div class="form-group description-mobile">
-          <label for="mobileNumber">Priezvisko:</label>
-          <input type="text" class="form-control" id="lastName" name="lastName">
+  <!--CONTACT FORM-->
+  <section>
+    <form (ngSubmit)="continue()" #contactForm="ngForm">
+      <div class="contact-details-info">
+        <label for="firstname">Meno: </label>
+        <input type="text" name="firstname" required [(ngModel)]="_orderModel.firstname" #firstName="ngModel">
+        <div [hidden]="firstName.valid || firstName.pristine" class="error">
+          Prosim vyplnte meno kontaktnej osoby!
         </div>
       </div>
-      <div class="row">
-        <div>
-          <div class="form-group description-mobile">
-            <label for="mobileNumber">Telefónne číslo:</label>
-            <!--<input type="text" class="form-control" id="mobileNumber" required [(ngModel)]="model.mobileNumber" name="mobileNumber">-->
-          </div>
+      <div class="contact-details-info">
+        <label for="lastName">Priezvisko: </label>
+        <input type="text" name="lastName" required [(ngModel)]="_orderModel.lastName" #lastName="ngModel">
+        <div [hidden]="lastName.valid || lastName.pristine" class="error">
+          Prosim vyplnte priezvisko kontaktnej osoby!
         </div>
       </div>
-    </div>
-  </form>
+      <div class="contact-details-info">
+        <label for="contactNumber">Telefonne cislo: </label>
+        <input type="text" name="contactNumber" required [(ngModel)]="_orderModel.contactNumber" #contactNumber="ngModel">
+        <div [hidden]="contactNumber.valid || contactNumber.pristine" class="error">
+          Prosim vyplnte telefonne cislo kontaktnej osoby!
+        </div>
+      </div>
+      <div class="contact-details-info">
+        <label for="email">Emailova adresa: </label>
+        <input type="text" name="email" required [(ngModel)]="_orderModel.email" #email="ngModel">
+        <div [hidden]="email.valid || email.pristine" class="error">
+          Prosim vyplnte emailovu adresu kontaktnej osoby!
+        </div>
+      </div>
 
-  <!--NAVIGATION BUTTONS-->
-  <div class="stepper-actions">
-    <a class="btn btn-default btn-lg btn-simple mbn" (click)="back()">Spať</a>
-    <a class="btn btn-info btn-lg btn-simple pull-right mbn" (click)="continue()">Pokračovať</a>
-  </div>
+      <div class="contact-details-info input-control">
+        <label for="orderDate">Vyberte zelany datum realizaice opravy:</label>
+        <owl-date-time name="orderDate" required
+          [(ngModel)]="_orderModel.orderDate" [dateFormat]="'YYYY-MM-DD'" [hourFormat]="'24'"
+          [locale]="svk" [min]="min" [max]="max" 
+          [type]="'calendar'" [placeHolder]="'yyyy/mm/dd'" [inputId]="'orderDate'">
+        </owl-date-time>
+      </div>
+
+      <div class="contact-details-info input-control">
+        <label for="orderTime">Vyberte zelany cas realizaice opravy:</label>
+        <owl-date-time name="orderTime" required
+          [(ngModel)]="_orderModel.orderTime" [type]="'timer'" [hourFormat]="'24'"
+          [dateFormat]="'hh:mm'" [placeHolder]="'hh:mm'" 
+          [inputId]="'orderTime'">
+        </owl-date-time>
+      </div>
+
+
+      <!--NAVIGATION BUTTONS-->
+      <div class="stepper-actions">
+        <a class="btn btn-default btn-lg btn-simple mbn" (click)="back()">Spať</a>
+        <button type="submit" class="btn btn-info btn-lg btn-simple pull-right mbn" [disabled]="!contactForm.form.valid">Pokračovať</button>
+      </div>
+
+    </form>
+  </section>
 </div>

@@ -4,11 +4,41 @@
 }
 
 input[type="file"] {
-    display: none;
+    display: block;
 }
 .custom-file-upload {
     border: 1px solid #ccc;
     display: inline-block;
     padding: 6px 12px;
     cursor: pointer;
+}
+
+.img-row {
+    display: inline-block;
+  }
+  
+.img-frame {
+    margin: 10px;  
+    border: 5px solid #fff;
+    cursor: pointer;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    max-width: 150px;
+    max-height: 150px;
+}
+
+.img-frame:hover, .img-frame:focus, .img-frame:active {
+    -webkit-transform: translateY(-5px);
+    transform: translateY(-5px);
+}
+
+.img-attachment{
+    display: block;
+}
+.img-delete-icon{
+    cursor: pointer;
+    font-size: 125%;
+    margin-left: 43%
 }

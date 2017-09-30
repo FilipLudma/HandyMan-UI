@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers } from '@angular/http';
 import { AuthHttp, tokenNotExpired } from 'angular2-jwt';
-import { OrderModel } from '../../models/orderModel'
+import { OrderModel } from '../../models/order/orderModel'
 import { Subject } from "rxjs/Subject";
 
 @Injectable()

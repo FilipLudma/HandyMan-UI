@@ -1,9 +1,13 @@
 import { Directive, ElementRef, Input, Component, OnInit, Renderer, OnChanges, SimpleChanges } from '@angular/core';
 import { FileUploader } from 'ng2-file-upload';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { Lightbox, LightboxConfig, LightboxEvent, LIGHTBOX_EVENT, IEvent, IAlbum } from 'angular2-lightbox';
 
-// const URL = '/api/';
-const URL = 'https://evening-anchorage-3159.herokuapp.com/api/';
+import { Subscription } from 'rxjs';
+
+import { DescriptionComponent } from '../description/description.component'
+import { ImgAttachment } from 'app/models/order/imgAttachment';
+
 
 @Component({
   selector: 'app-image-upload',
@@ -11,35 +15,101 @@ const URL = 'https://evening-anchorage-3159.herokuapp.com/api/';
   styleUrls: ['./image-upload.component.css']
 })
 
-@Directive({ selector: 'img[imgPreview]' })
-
 export class ImageUploadComponent implements OnInit {
+  private _albums: Array<IAlbum> = [];
+  private _options: Object = {};
+  private _subscription: Subscription;
+  private image: any;
 
-  public uploader: FileUploader = new FileUploader({ url: URL });
-  public hasBaseDropZoneOver: boolean = false;
-  public hasAnotherDropZoneOver: boolean = false;
+  constructor(
+    private _lightbox: Lightbox,
+    private _lightboxEvent: LightboxEvent,
+    private _lighboxConfig: LightboxConfig,
+    private _descriptionComponent: DescriptionComponent,
+  ) {
+    // set default config
+    _lighboxConfig.fadeDuration = 1;
+  }
 
-  public filePreviewPath: SafeUrl;
+  open(index: number): void {
+    // open lightbox
+    this._lightbox.open(this._albums, index);
+  }
 
-  @Input() image: any;
+  changeListener($event): void {
+    this.readThis($event.target);
+  }
 
-  constructor(private el: ElementRef, private renderer: Renderer) { }
+  readThis(inputValue: any): void {
+    var file: File = inputValue.files[0];
 
-  ngOnChanges(changes: SimpleChanges) {
+    if (file != undefined) {
+      var myReader: FileReader = new FileReader();
 
-    let reader = new FileReader();
-    let el = this.el;
-
-    reader.onloadend = function (e) {
-      el.nativeElement.src = reader.result;
-    };
-
-    if (this.image) {
-      return reader.readAsDataURL(this.image);
+      myReader.onloadend = (e) => {
+        this.image = myReader.result;
+        this.addImage(this.image, file.name);
+      }
+      myReader.readAsDataURL(file);
     }
   }
 
-  ngOnInit() {
+  addImage(base64Img, fileName) {
+    var attachment: ImgAttachment = new ImgAttachment();
+    attachment.src = base64Img;
+    attachment.caption = fileName;
+    attachment.thumb = base64Img;
+
+    this._descriptionComponent.orderModel.imgAttachments.push(attachment);
+
+    const album = {
+      src: attachment.src,
+      caption: attachment.caption,
+      thumb: attachment.thumb
+    };
+
+    this._albums.push(album);
   }
 
+  removeImg($event): void {
+    var el = $event.target;
+    var imgAlbumName = el.previousElementSibling.name;
+
+    // Remove from LightBox
+    var albumIndex = this._albums.findIndex(x => x.caption == imgAlbumName);
+    if (albumIndex > -1) {
+      this._albums.splice(albumIndex, 1);
+    }
+
+    // Remove from Object
+    var albumObjIndex = this._descriptionComponent.orderModel.imgAttachments.findIndex(x => x.caption == imgAlbumName);
+    if (albumObjIndex > -1) {
+      this._descriptionComponent.orderModel.imgAttachments.splice(albumObjIndex, 1);
+    }
+
+    el.parentNode.remove();
+  }
+
+  ngOnInit() {
+    console.log(this._descriptionComponent.orderModel.imgAttachments)
+    if (this._descriptionComponent != undefined
+      && this._descriptionComponent.orderModel.imgAttachments != undefined
+      && this._descriptionComponent.orderModel.imgAttachments.length > 0) {
+      for (let i = 0; i < this._descriptionComponent.orderModel.imgAttachments.length; i++) {
+        const src = this._descriptionComponent.orderModel.imgAttachments[i].src;
+        const caption = this._descriptionComponent.orderModel.imgAttachments[i].caption;
+        const thumb = this._descriptionComponent.orderModel.imgAttachments[i].thumb;
+        const album = {
+          src: src,
+          caption: caption,
+          thumb: thumb
+        };
+
+        this._albums.push(album);
+      }
+    }
+  }
 }
+
+
+

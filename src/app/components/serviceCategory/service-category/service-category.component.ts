@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OrderModel } from "app/models/orderModel";
+import { OrderModel } from "app/models/order/orderModel";
 
 @Component({
   selector: 'app-service-category',

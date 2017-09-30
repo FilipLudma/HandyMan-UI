@@ -6,8 +6,10 @@ import { routing } from '../new-order/new-order.routing';
 
 import { AuthService } from '../../components/security/auth.service';
 import { SharedModule } from '../../shared/shared.module'
-
 import { ModalModule } from "ng2-modal";
+
+import { DatepickerModule } from 'angular2-material-datepicker'
+import { DateTimePickerModule } from 'ng-pick-datetime';
 
 import { ContactDetailsComponent } from './contact-details.component';
 
@@ -19,6 +21,8 @@ import { ContactDetailsComponent } from './contact-details.component';
     FormsModule,
     ReactiveFormsModule,
     ModalModule,
+    DatepickerModule,
+    DateTimePickerModule, 
     routing
   ],
   declarations: [

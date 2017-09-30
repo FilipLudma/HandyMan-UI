@@ -7,14 +7,14 @@ import { routing } from '../new-order/new-order.routing';
 import { AuthService } from '../../components/security/auth.service';
 import { ImageUploadComponent } from '../image-upload/image-upload.component';
 import { FileSelectDirective } from 'ng2-file-upload';
-import { CarouselComponentModule } from '../../shared/components/carousel/carousel.model';
+import { LightboxModule } from 'angular2-lightbox';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    CarouselComponentModule,
+    LightboxModule,
     routing
   ],
   declarations: [
