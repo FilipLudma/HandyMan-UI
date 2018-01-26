@@ -1,0 +1,56 @@
+.user-info{
+    padding: 15px;
+}
+.user-logout
+{
+    cursor: pointer;
+}
+
+.navbar{
+    margin: 0 !important;
+}
+
+.sticky-wrapper{
+    z-index: 1003 !important;
+}
+
+.fixed {    
+    height: 30px;    
+    position: fixed;
+    top: 0%;
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 1s;
+}
+
+.logoAdjust{
+	height: 93%;
+}
+
+.navTransparent{
+	background: transparent !important;
+}
+
+.navAdjustment{
+	height: 100px;
+	padding: 25px;
+}
+
+.navAdjustment .navTransparent{
+	font-size: 20px;
+}
+
+.fa{
+	font-family: 'Quicksand', 'sans-serif' !important;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}

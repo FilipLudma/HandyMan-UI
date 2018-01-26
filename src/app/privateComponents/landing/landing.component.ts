@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../components/security/auth.service';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing',
@@ -8,15 +7,17 @@ import { AuthService } from '../../components/security/auth.service';
   styleUrls: [
     './landing.component.css',
     '../../shared/css/style.default.css'
-      ],
-  providers:[ AuthService ]
+  ]
 })
 export class LandingComponent implements OnInit {
 
-  constructor(private auth: AuthService) { }
 
-  logOut(){
-    this.auth.logout();
+  constructor(
+    private router: Router 
+  ) { }
+
+  logOut() {
+    this.router.navigateByUrl('/prihlasenie');
   }
 
   ngOnInit() {

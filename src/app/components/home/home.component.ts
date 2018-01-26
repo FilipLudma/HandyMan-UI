@@ -16,21 +16,8 @@ import { Observer } from 'rxjs/Observer';
 export class HomeComponent implements OnInit {
   public navIsFixed: boolean = false;
 
-  constructor( @Inject(DOCUMENT) private document: Document) { }
+  constructor(  ) { }
 
   ngOnInit() { }
-
-  @HostListener("window:scroll", [])
-  onWindowScroll() {
-    let number = this.document.body.scrollTop;
-    let navPosition = this.document.getElementById('header').offsetHeight - 1;
-    if (number >= navPosition) {
-      // console.log('number', number)
-      // console.log('navPosition', navPosition)
-      this.navIsFixed = true;
-    } else if (this.navIsFixed && number < navPosition) {
-      this.navIsFixed = false;
-    }
-  }
 }
 

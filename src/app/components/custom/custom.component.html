@@ -1,52 +1,26 @@
-<div class="container clearfix content-how-it-works">
-  <div class="row">
-    <div class="col-md-12">
-      <h2 class="heading">Ako to funguje ?</h2>
+<div class="container" id="hiw-scrt" style="padding-top: 50px;">
+    <header class="header-section">
+        <h2 class="title-label">ako to funguje</h2>
+        <h4 class="sub-title-label">We provide the highest level of customer support and build <br>long lasting relationships with our clients in this
+            4 simple steps.</h4>
+    </header>
 
-     <div class="row">
-      <div class="how-it-works step_1">
-        <img alt ="Krok 1" class="how-it-works-img" src="../../../images/DescriptionImages/placeholder128.png">
-        <div class="how-it-works-content content-left">
-          <div class="how-it-works-label">1</div>
-          <div class="how-it-works-name">Zadáte adresu</div>
-          <div class="how-it-works-description">Pre expresné vybavenie vášho problému potrebujeme presne vedieť na akej adrese potrebujete pomocť.</div>
-        </div>  
-      </div>
-     </div>
-     
-     <div class="row">
-      <div class="how-it-works step_2">
-        <img alt ="Krok 2" class="how-it-works-img" src="../../../images/DescriptionImages/edit128.png">
-        <div class="how-it-works-content content-right">
-          <div class="how-it-works-label">2</div> 
-          <div class="how-it-works-name">Vyberiete druh problému</div>
-          <div class="how-it-works-description">Vybrať si môžete z rôznych domácich prác a taktiež vybrať deň a čas kedy Vám najviac vyhovuje návšteva remeselníka.</div>
-        </div>  
-      </div>
-     </div>
-
-     <div class="row">
-      <div class="how-it-works step_3">
-        <img alt ="Krok 3" class="how-it-works-img" src="../../../images/DescriptionImages/clock128.png">
-        <div class="how-it-works-content content-left">
-          <div class="how-it-works-label">3</div>
-          <div class="how-it-works-name">Vyberiete si remeselníka</div>
-          <div class="how-it-works-description">Naša databáza obsahuje mnoho šikovných remeselníkov. Vy si možete vybrať pre Vás toho najsimaptickejšieho, alebo si nechať poradiť na základe hodnotení od našich používateľov.</div>
-        </div>  
-      </div>
-     </div>
-
-     <div class="row">
-      <div class="how-it-works step_4">
-        <img alt ="Krok 4" class="how-it-works-img" src="../../../images/DescriptionImages/success128.png">
-        <div class="how-it-works-content content-right">
-          <div class="how-it-works-label">4</div>
-          <div class="how-it-works-name">A už len počkáte na príchod remeslníka</div>
-          <div class="how-it-works-description">Remeselník sa dostaví na vami uvedenú adresu v stanovenom čase a termine. Po vykonaní všetkých potrebných úkonov a uspokojení zadanej úlohy, môže prísť ku platbe.</div>
-        </div>  
-      </div>
-     </div>
-
-    </div>
-  </div>
+    <section class="how-it-works-section">
+        <div class="order-step-container" *ngFor="let step of _steps; let ind = index">
+            <div class="step-number-wrapper">
+                <div class="step-number">{{ind + 1}}</div>
+            </div>
+            <div class="step-description">
+                <div class="step-table-wrapper">
+                    <div class="verticle_align">
+                        <h4 class="h4">{{step.stepName}}</h4>
+                        <p class="step-description-text">{{step.stepDescription}}</p>
+                        <span class="step-icon-wrapper">
+                          <img src="{{step.stepImgUrl}}" alt="">
+                      </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>

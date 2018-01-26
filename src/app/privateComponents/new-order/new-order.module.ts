@@ -9,6 +9,7 @@ import { NewOrderComponent } from './new-order.component';
 import { AddressModule } from '../address/address.module'
 import { DescriptionModule } from '../description/description.module'
 import { ContactDetailsModule } from '../contact-details/contact-details.module'
+import { ConfirmationModule } from '../confirmation/confirmation.module'
 
 import { HeaderComponentModule } from '../../shared/components/header/header.module';
 import { FooterComponentModule } from '../../shared/components/footer/footer.module';
@@ -21,6 +22,7 @@ import { FooterComponentModule } from '../../shared/components/footer/footer.mod
     AddressModule,
     DescriptionModule,
     ContactDetailsModule,
+    ConfirmationModule,
     HeaderComponentModule,
     FooterComponentModule,
     routing ],

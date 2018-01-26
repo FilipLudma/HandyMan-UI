@@ -1,0 +1,7 @@
+<div class="column has-text-centered">
+  <div class="img-row" *ngFor="let image of _albums; let i=index">
+    <div class="img-attachment">
+      <img class="img-frame" [src]="image.thumb" [name]="image.caption" (click)="open(i)" />
+    </div>
+  </div>
+</div>

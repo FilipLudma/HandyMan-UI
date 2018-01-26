@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 
 import { IntroComponent } from './intro.component';
 import { HomeComponent } from '../home/home.component'
-import { routing } from './intro.routing';
+// import { routing } from './intro.routing';
 import { SharedModule } from '../../shared/shared.module'
 import { Ng2PageScrollModule } from 'ng2-page-scroll';
 import { PortfolioModule } from '../portfolio/portfolio.module'
@@ -16,24 +16,16 @@ import { CustomComponent } from '../custom/custom.component';
 import { OurTeamComponent } from '../our-team/our-team.component';
 import { ContactComponent } from '../contact/contact.component';
 
-import { LoginModule } from '../security/login/login/login.module';
-
 @NgModule({
   imports: [
-    routing,
-    LoginModule,
+    // routing,
     SharedModule,
     PortfolioModule,
     ServicesModule,
     ModalModule,
     Ng2PageScrollModule.forRoot()],
   declarations: [
-    IntroComponent,
-    HomeComponent,
-    AboutUsComponent,
-    CustomComponent,
-    OurTeamComponent,
-    ContactComponent],
+    AboutUsComponent],
   providers: []
 })
 export class IntroModule { }

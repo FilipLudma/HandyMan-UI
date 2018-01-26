@@ -9,7 +9,7 @@ import { ServiceCategoryComponent } from './service-category.component';
 import { HeaderComponentModule } from '../../../shared/components/header/header.module';
 import { FooterComponentModule } from '../../../shared/components/footer/footer.module';
 import { ServiceCategoryWorkerModule } from '../service-category-worker/service-category-worker.module';
-
+import { HeaderComponent } from 'app/shared/components/header/header.component';
 
 @NgModule({
     imports: [
@@ -19,10 +19,10 @@ import { ServiceCategoryWorkerModule } from '../service-category-worker/service-
         HeaderComponentModule,
         FooterComponentModule,
         ServiceCategoryWorkerModule,
-        routing,
+        routing
     ],
     declarations: [
-        ServiceCategoryComponent
+        ServiceCategoryComponent,
     ]
 })
 export class ServiceCategoryModule { }

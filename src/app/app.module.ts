@@ -2,24 +2,48 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
 import { Ng2PageScrollModule } from 'ng2-page-scroll';
 import { ModalModule } from "ng2-modal";
-
-import { AppComponent } from './app.component';
-import { routing } from './app.routing';
-
 import { IntroModule } from './components/intro/intro.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
-import { AuthService } from '../app/components/security/auth.service';
-import { AuthGuard } from '../app/components/security/auth-guard.service';
+import { routing } from './app.routing';
+
+import { AppComponent } from './app.component';
+import { AlertComponent } from '../app/components/user/alert/alert.component';
+import { IntroComponent } from '../app/components/intro/intro.component';
+import { LoginComponent } from '../app/components/user/login/login.component';
+import { RegisterComponent } from '../app/components/user/register/register.component';
+import { HeaderComponent } from '../app/shared/components/header/header.component';
+import { HomeComponent } from 'app/components/home/home.component';
+import { CustomComponent } from 'app/components/custom/custom.component';
+import { ContactComponent } from 'app/components/contact/contact.component';
+import { ServicesComponent } from 'app/components/services/services.component';
+import { OurTeamComponent } from 'app/components/our-team/our-team.component';
+
 import { CategoryService } from './services/category/category.service'
 import { OrderObjectService } from './services/order/order-object.service'
-import { ServiceCategoryWorkerComponent } from '../app/components/serviceCategory/service-category-worker/service-category-worker.component';
+
+import { AlertService, } from './services/common/alert.service';
+import { AuthenticationService } from './services/common/authentication.service';
+import { UserService } from './services/user/user.service';
+import { AuthGuard } from './services/common/auth.guard';
+import { Config } from './services/config';
+import { HeaderComponentModule } from 'app/shared/components/header/header.module';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    AlertComponent,
+    LoginComponent,
+    RegisterComponent,
+   // HeaderComponent,
+    IntroComponent,
+    HomeComponent,
+    CustomComponent,
+    ContactComponent,
+    ServicesComponent,
+    OurTeamComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -29,14 +53,17 @@ import { ServiceCategoryWorkerComponent } from '../app/components/serviceCategor
     Ng2PageScrollModule.forRoot(),
     ModalModule,
     BrowserAnimationsModule,
-    //Angular2FontAwesomeModule,
+    HeaderComponentModule,
     routing
   ],
   providers: [
-    AuthGuard,
-    AuthService,
     OrderObjectService,
-    CategoryService
+    CategoryService,
+    AuthGuard,
+    AlertService,
+    AuthenticationService,
+    UserService,
+    Config
   ],
   bootstrap: [AppComponent]
 })

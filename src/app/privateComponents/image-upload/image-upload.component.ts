@@ -60,7 +60,7 @@ export class ImageUploadComponent implements OnInit {
     attachment.caption = fileName;
     attachment.thumb = base64Img;
 
-    this._descriptionComponent.orderModel.imgAttachments.push(attachment);
+    this._descriptionComponent.imgAttachments.push(attachment);
 
     const album = {
       src: attachment.src,
@@ -82,23 +82,23 @@ export class ImageUploadComponent implements OnInit {
     }
 
     // Remove from Object
-    var albumObjIndex = this._descriptionComponent.orderModel.imgAttachments.findIndex(x => x.caption == imgAlbumName);
+    var albumObjIndex = this._descriptionComponent.imgAttachments.findIndex(x => x.caption == imgAlbumName);
     if (albumObjIndex > -1) {
-      this._descriptionComponent.orderModel.imgAttachments.splice(albumObjIndex, 1);
+      this._descriptionComponent.imgAttachments.splice(albumObjIndex, 1);
     }
 
     el.parentNode.remove();
   }
 
   ngOnInit() {
-    console.log(this._descriptionComponent.orderModel.imgAttachments)
+    console.log(this._descriptionComponent.imgAttachments)
     if (this._descriptionComponent != undefined
-      && this._descriptionComponent.orderModel.imgAttachments != undefined
-      && this._descriptionComponent.orderModel.imgAttachments.length > 0) {
-      for (let i = 0; i < this._descriptionComponent.orderModel.imgAttachments.length; i++) {
-        const src = this._descriptionComponent.orderModel.imgAttachments[i].src;
-        const caption = this._descriptionComponent.orderModel.imgAttachments[i].caption;
-        const thumb = this._descriptionComponent.orderModel.imgAttachments[i].thumb;
+      && this._descriptionComponent.imgAttachments != undefined
+      && this._descriptionComponent.imgAttachments.length > 0) {
+      for (let i = 0; i < this._descriptionComponent.imgAttachments.length; i++) {
+        const src = this._descriptionComponent.imgAttachments[i].src;
+        const caption = this._descriptionComponent.imgAttachments[i].caption;
+        const thumb = this._descriptionComponent.imgAttachments[i].thumb;
         const album = {
           src: src,
           caption: caption,

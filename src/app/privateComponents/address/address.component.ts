@@ -11,11 +11,14 @@ import { OrderModel } from "app/models/order/orderModel";
 
 import { NewOrderComponent } from '../new-order/new-order.component'
 
+import { User } from 'app/models/user/user';
+import { UserService } from '../../services/user/user.service';
+
 @Component({
   selector: 'app-address',
   templateUrl: './address.component.html',
   styleUrls: ['./address.component.css'],
-  providers: [OrderService]
+  providers: [OrderService, UserService]
 })
 
 export class AddressComponent implements OnInit {
@@ -42,6 +45,8 @@ export class AddressComponent implements OnInit {
   public submitted: boolean; // keep track on whether form is submitted
   public events: any[] = []; // use later to display form changes
 
+  public currentUser: User;
+
   constructor(
     private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone,
@@ -49,8 +54,10 @@ export class AddressComponent implements OnInit {
     private route: ActivatedRoute,
     private parentComponennt: NewOrderComponent,
     private orderService: OrderService,
+    private userService: UserService,
     private orderObjectService: OrderObjectService,
     private _fb: FormBuilder) {
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
   ngOnInit() {
@@ -62,12 +69,6 @@ export class AddressComponent implements OnInit {
     this.myForm = this._fb.group({
       address: ['', [<any>Validators.required]]
     });
-
-    // this.sub = this.route.params.subscribe(params => {
-    //   this.id = params['kategoria']; // (+) converts string 'id' to a number
-    // });
-
-    // console.log(this.id);
 
     //set google maps defaults
     this.zoom = 15;
@@ -104,7 +105,6 @@ export class AddressComponent implements OnInit {
 
   public continue() {
     this.submitted = true;
-    //console.log(this.searchElementRef.nativeElement.value);
 
     // Check availability radius
     var origin = new google.maps.LatLng(48.1486, 17.1077);
@@ -122,16 +122,17 @@ export class AddressComponent implements OnInit {
       this.newOrder.address = this.myForm.value['address'];
       var oderToSave = this.orderObjectService.updateOrder(this.newOrder);
 
-      this.orderService.createOrderWithParam(oderToSave)
-        .subscribe(orderId => this.newOrder.id = orderId);
-
-      if (this.newOrder.id != undefined && this.newOrder.id != '') {
-        console.log("NEW ID" + this.newOrder.id);
-        this.router.navigate(['/novaPorucha/popis', this.newOrder.id]);
-        this.parentComponennt.stepOneStatus = "stepper-step stepper-step-isValid";
-        this.parentComponennt.stepTwoStatus = "stepper-step stepper-step-isActive";
-      }
-
+      this.orderService.saveOrder('/createOrderWithBody', oderToSave).then(response => {
+        this.newOrder.id = response;
+        if (this.newOrder.id != undefined && this.newOrder.id != '') {
+          console.log("NEW ID" + this.newOrder.id);
+          this.router.navigate(['/novaPorucha/popis', this.newOrder.id]);
+          this.parentComponennt.stepOneStatus = "stepper-step stepper-step-isValid";
+          this.parentComponennt.stepTwoStatus = "stepper-step stepper-step-isActive";
+        }
+      }).catch(error => {
+        console.log("Got error:", error);
+      });
     } else if (this.myForm.value['address'] == '') {
       return null;
     } else {
@@ -153,8 +154,4 @@ export class AddressComponent implements OnInit {
       });
     }
   }
-
-  // ngOnDestroy() {
-  //   this.sub.unsubscribe();
-  // }
 }

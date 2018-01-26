@@ -1,15 +1,20 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AuthGuard } from 'app/components/security/auth-guard.service'
+
+import { LoginComponent } from '../app/components/user/login/login.component';
+import { RegisterComponent } from '../app/components/user/register/register.component';
+import { HomeComponent } from 'app/components/home/home.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'index', pathMatch: 'full' },
-  { path: 'login', loadChildren: 'app/components/security/login/login/login.module#LoginModule' },
-  { path: 'prehladSluzieb', loadChildren: 'app/components/serviceCategory/service-category/service-category.module#ServiceCategoryModule' },
-
-  { path: 'prehlad', loadChildren: 'app/privateComponents/landing/landing.module#LandingModule', canActivate: [AuthGuard] },
-  { path: 'novaPorucha', loadChildren: 'app/privateComponents/new-order/new-order.module#NewOrderModule'},
-  { path: 'historiaPoruch', loadChildren: 'app/privateComponents/orders/orders.module#OrdersModule', canActivate: [AuthGuard] },
+  { path: '', redirectTo: '/uvod', pathMatch: 'full' },
+  { path: 'uvod', component: HomeComponent },
+  { path: 'prehladslužieb', loadChildren: 'app/components/serviceCategory/service-category/service-category.module#ServiceCategoryModule' },
+  { path: 'prehlad', loadChildren: 'app/privateComponents/landing/landing.module#LandingModule' },
+  { path: 'novaPorucha', loadChildren: 'app/privateComponents/new-order/new-order.module#NewOrderModule' },
+  { path: 'historiaPoruch', loadChildren: 'app/privateComponents/orders/orders.module#OrdersModule' },
+  { path: 'prihlasenie', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: '**', component: HomeComponent },
 
   //   { path: 'orders', loadChildren: 'app/privateComponents/orders/orders.module#OrdersModule', canActivate: [AuthGuard] }, 
   //   { path: 'crisis', loadChildren: 'app/crisis/crisis.module#CrisisModule' },

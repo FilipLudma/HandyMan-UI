@@ -4,7 +4,7 @@ import { Subject } from "rxjs/Subject";
 import { CategoryModel } from "app/models/categoryModel";
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { Config } from '../Config';
+import { Config } from '../config';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/Rx';

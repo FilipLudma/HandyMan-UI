@@ -9,7 +9,7 @@ import { ModalModule } from "ng2-modal";
     CommonModule,
     ModalModule
   ],
-  declarations: [ HeaderComponent ],
-  exports: [ HeaderComponent ]
+  declarations: [HeaderComponent],
+  exports: [HeaderComponent]
 })
 export class HeaderComponentModule { }

@@ -7,7 +7,7 @@
     <form (ngSubmit)="continue()" #contactForm="ngForm">
       <div class="contact-details-info">
         <label for="firstname">Meno: </label>
-        <input type="text" name="firstname" required [(ngModel)]="_orderModel.firstname" #firstName="ngModel">
+        <input type="text" name="firstname" required [(ngModel)]="_orderModel.firstName" #firstName="ngModel">
         <div [hidden]="firstName.valid || firstName.pristine" class="error">
           Prosim vyplnte meno kontaktnej osoby!
         </div>

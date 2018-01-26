@@ -1,0 +1,55 @@
+input, .input-control {
+    margin-bottom: 15px;
+}
+
+.container {
+    width: 83%;
+    margin: auto;
+    display: grid;
+}
+
+.cd-left {
+    padding-left: 0 !important;
+}
+
+.cd-right {
+    padding-right: 0 !important;
+}
+
+.price-wrapper{
+    float: right;
+}
+
+.price-wrapper .service-price{
+    font-size: 3rem;
+}
+
+
+.btn-secondary, .btn-secondary:visited{
+    color: #5091da; 
+    border: 1px solid #5091da; 
+    background-color: white; 
+}
+
+.btn-secondary:hover{
+    border: 1px solid #5091da; 
+    background-color: #5091da; 
+    color: white !important;
+}
+
+
+.info-btn {
+   font-size: 1.55rem;
+   text-transform: none;
+}
+
+.confirm-btn{
+    width: 40%;
+    text-align: center;
+    margin: auto;
+}
+
+.stepper-actions{
+    margin-top:  15px;
+    display: flex;
+}

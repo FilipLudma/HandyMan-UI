@@ -1,150 +1,66 @@
-<!--service-category-img-container-->
-<div class="jumbotron service-category-detail">
-  <div class="service-category-img-container">
-    <!--<img src="../../../../images/ServiceCategories/CategoryWorker.png" alt="Image" class="img-fluid img-circle img-thumbnail category-main-img">-->
-    <img src="../../../../images/OccupationImages/builder.png" alt="Image" class="img-fluid img-circle img-thumbnail category-main-img">
+<a (click)="backToIndex()" class="back-to-top" style="display: inline">
+ <i class="fa fa-arrow-circle-left"></i>
+</a>
+
+<section class="service-category-header">
+  <div class="service-category-detail" [ngStyle]="{ 'background-image': 'url(' + back + ')'}">
+    <!-- <img src="../../../../images/OccupationImages/1.png" alt="Image" class="img-fluid"> -->
   </div>
-</div>
+</section>
 
-<div class="container-fluid service-catergory-container">
+<header class="service-category-name">
+  <h2>{{selectedCategory.categoryName}}</h2>
+  <h4> Populárne služby</h4>
+</header>
 
-  <!--HOW IT WORKS-->
-  <app-service-category-how-it-works class="how-it-works"></app-service-category-how-it-works>
-  <!--END HOW IT WORKS-->
-
-  <div class="col-sm-8 service-category-group">
-    <!--FIRST-->
-    <div #testAnchor class="row service-category-row">
-
-      <div class="service-category-img" (click)='createOrderWithCategory()'>
-        <img src="../../../../images/OccupationImages/builder.png" alt="Image" class="img-fluid img-circle img-thumbnail category-worker-img">
-      </div>
-      <div class="col-lg-8">
-        <div class="sub-category-container">
-          <h3 class="sub-category-title" (click)='createOrderWithCategory()'>Pod kategoria 1</h3>
-          <p class="sub-category-description" (click)='createOrderWithCategory()'>
-            Aliquam dapibus felis fringilla ligula mittis, ut congue purus gravida. Suspendisse suscipit tellus id odio mollis, id tincidunt
-            metus gravida. Ut at arcu in elit maximus eleifend. Pokracuj kliknutim...</p>
-
-          <label class="sub-category-rating-label" (click)='myPopOver.show($event)'>Zobraz hodnotenia: 
-            <i class="fa fa-star fa-2" aria-hidden="true"></i>
-            <i class="fa fa-star fa-2" aria-hidden="true"></i>
-            <i class="fa fa-star fa-2" aria-hidden="true"></i>
-          </label>
-
-          <!--<span [pop-over-trigger]="myPopOver" [show-on]="'click($event)'" [hide-on]="'mouseleave,click'">help</span>-->
-          <pop-over #myPopOver [anchor-to]="testAnchor" [x-offset]="5" [y-offset]="5">
-            <!--(mouseleave)='myPopOver.hide()'-->
-            <div class="my-pop-over" (click)='myPopOver.hide()'>
-              <h3 class="sub-category-rating-title" (click)='createOrderWithCategory()'>Pod kategoria 1</h3>
-              <!--Ratings 1-->
-              <div class="service-category-rating-container">
-                <div>
-                  <rating [(ngModel)]="starsCount" [readonly]="true" [float]="true" [titles]="['one', 'two', 'three', 'four', 'five']">>
-                  </rating>
-
-                  <div class="service-category-wrapper">
-                    <div class="service-category-rating">
-                      <div>"I have only been using this service for less then a week and love. It's great for my business."</div>
-                      <div style="font-weight:bold;margin-top:3px;">TOYZ-4-ALL</div>
-                      <div>June 24th, 2015</div>
-                    </div>
-                    <div class="service-rating-img">
-                      <img class="ratings-img" src="../../../../images/Common/review_recommended_64.png" alt="Image">
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <hr>
-
-              <!--Ratings 2-->
-              <div class="service-category-rating-container">
-                <div>
-                  <rating [(ngModel)]="starsCount" [readonly]="true" [float]="true" [titles]="['one', 'two', 'three', 'four', 'five']">>
-                  </rating>
-
-                  <div class="service-category-wrapper">
-                    <div class="service-category-rating">
-                      <div>"I have only been using this service for less then a week and love. It's great for my business."</div>
-                      <div style="font-weight:bold;margin-top:3px;">TOYZ-4-ALL</div>
-                      <div>June 24th, 2015</div>
-                    </div>
-                    <div class="service-rating-img">
-                      <img class="ratings-img" src="../../../../images/Common/review_recommended_64.png" alt="Image">
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <hr>
-
-              <!--Ratings 3-->
-              <div class="service-category-rating-container">
-                <div>
-                  <rating [(ngModel)]="starsCount" [readonly]="true" [float]="true" [titles]="['one', 'two', 'three', 'four', 'five']">>
-                  </rating>
-
-                  <div class="service-category-wrapper">
-                    <div class="service-category-rating">
-                      <div>"I have only been using this service for less then a week and love. It's great for my business."</div>
-                      <div style="font-weight:bold;margin-top:3px;">TOYZ-4-ALL</div>
-                      <div>June 24th, 2015</div>
-                    </div>
-                    <div class="service-rating-img">
-                      <img class="ratings-img" src="../../../../images/Common/review_recommended_64.png" alt="Image">
-                    </div>
-                  </div>
-                </div>
-              </div>
-
+<section class="service-category-content">
+  <div class="container-fluid service-catergory-container">
+    <div class="service-category-group">
+      <div class="row service-category-row">
+        <div class="col-sm-4 col-sm-6" *ngFor="let subCategory of subCategoriesToDisplay; let ind = index">
+          <div class="box box-services" (click)='createOrderWithCategory()'>
+            <div class="icon">
+              <!-- <img src="../../../images/OccupationImages/builder.png"><img> -->
+              <h4 class="heading-description-services">{{subCategory.subCategoryName}}</h4>
+              <!-- <p>Fifth abundantly made Give sixth hath. Cattle creature i be don't them.</p> -->
             </div>
-          </pop-over>
-
-        </div>
-      </div>
-    </div>
-
-    <!--SECOND-->
-    <div class="row service-category-row">
-      <div class="service-category-row">
-        <div class="service-category-child2">
-          <img src="../../../../images/OccupationImages/builder.png" alt="Image" class="img-fluid img-circle img-thumbnail category-worker-img">
-        </div>
-        <div class="service-category-child1">
-          <div class="tm-media-text-container">
-            <h3 class="tm-media-title tm-gray-text">Pod kategoria 2</h3>
-            <p class="tm-media-description tm-gray-text-2">Aliquam dapibus felis fringilla ligula mittis, ut congue purus gravida. Suspendisse suscipit tellus id odio mollis,
-              id tincidunt metus gravida. Ut at arcu in elit maximus eleifend.</p>
           </div>
         </div>
       </div>
     </div>
+  </div>
+</section>
 
-
-    <!--THIRD-->
-    <div class="row service-category-row">
-      <div class="service-category-img">
-        <img src="../../../../images/OccupationImages/builder.png" alt="Image" class="img-fluid img-circle img-thumbnail category-worker-img">
-      </div>
-      <div class="service-category-text">
-        <div class="tm-media-text-container">
-          <h3 class="tm-media-title tm-gray-text">Pod kategoria 3</h3>
-          <p class="tm-media-description tm-gray-text-2">Aliquam dapibus felis fringilla ligula mittis, ut congue purus gravida. Suspendisse suscipit tellus id odio mollis,
-            id tincidunt metus gravida. Ut at arcu in elit maximus eleifend.</p>
-        </div>
-      </div>
-    </div>
+<section class="section-others" *ngIf="subCategoriesForDropDown.length > 0">
+  <hr>
+  <h4>Dalsie sluzby</h4>
+  <div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+      aria-expanded="true">
+      Dalsie sluzby
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+      <li *ngFor="let sub of subCategoriesForDropDown"><a>{{sub.subCategoryName}}</a></li>
+    </ul>
   </div>
 
-  <div class="row">
+  <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">223Dropdown Example
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li><a href="#">HTML</a></li>
+      <li><a href="#">CSS</a></li>
+      <li><a href="#">JavaScript</a></li>
+    </ul>
   </div>
-  <!--<star-rating-comp [starType]="'svg'" [rating]="2.63"></star-rating-comp>-->
 
-  <div #popOver4Target class="test">
-    <div class="service-category-img">
-      <img src="../../../../images/OccupationImages/builder.png" alt="Image" class="img-fluid img-circle img-thumbnail">
-      <img src="../../../../images/OccupationImages/builder.png" alt="Image" class="img-fluid img-circle img-thumbnail">
-      <img src="../../../../images/OccupationImages/builder.png" alt="Image" class="img-fluid img-circle img-thumbnail">
-      <img src="../../../../images/OccupationImages/builder.png" alt="Image" class="img-fluid img-circle img-thumbnail">
-    </div>
+</section>
+
+<hr>
+
+<section>
+  <div class="row img-preview">
+    <app-light-box class="img-preview-box" [albums]="_albums"></app-light-box>
   </div>
-</div>
+</section>

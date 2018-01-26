@@ -1,29 +1,25 @@
-import { LoginComponent } from './../security/login/login/login.component';
 import { ModalModule } from 'ng2-modal';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-intro',
   templateUrl: './intro.component.html',
-  styleUrls: ['./intro.component.css'],
+  styleUrls: [
+    './intro.component.css',
+    '../../shared/css/font.family.css'
+  ],
   providers: [ModalModule]
 })
+
 export class IntroComponent implements OnInit {
 
-  test: LoginComponent;
-  constructor(public modal: ModalModule) { }
+  constructor(public router: Router) { }
 
-  showLoginModal() {
-    console.log('showLoginModal');
-    this.test.open();
+  login(){
+    this.router.navigate(['/prihlasenie']);
   }
-
-  doSmth(reachedTarget: boolean): void {
-    if (reachedTarget) {
-    } else {
-    }
-  }
-
+  
   ngOnInit() {
   }
 }

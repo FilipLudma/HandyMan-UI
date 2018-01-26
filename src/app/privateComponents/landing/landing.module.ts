@@ -1,9 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Ng2PageScrollModule } from 'ng2-page-scroll';
 import { CommonModule } from '@angular/common';
-
-import { AuthService } from '../../components/security/auth.service';
-
 import { ModalModule } from "ng2-modal";
 import { routing } from './landing.routing';
 

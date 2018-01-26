@@ -9,6 +9,9 @@ import { DatepickerModule } from 'angular2-material-datepicker'
 import { OrderService } from '../../services/order/order.service';
 import { OrderObjectService } from '../../services/order/order-object.service';
 import { OrderModel } from "app/models/order/orderModel";
+import { ImgAttachment } from "app/models/order/imgAttachment";
+import { imgBlob } from 'app/models/common/ImgBlob';
+import { User } from 'app/models/user/user';
 
 @Component({
   selector: 'app-contact-details',
@@ -33,9 +36,11 @@ export class ContactDetailsComponent implements OnInit {
   };
 
   // Min date
-  public min: Date = new  Date();
+  public min: Date = new Date();
   // Max date = min date + 14 days
   public max = new Date(+this.min + 12096e5);
+
+  public currentUser: User;
 
   constructor(
     private router: Router,
@@ -43,37 +48,50 @@ export class ContactDetailsComponent implements OnInit {
     private parentComponennt: NewOrderComponent,
     private orderService: OrderService,
   ) {
-
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
   ngOnInit() {
-    // console.log(this.descriptionComponent.orderModel);
+    this.sub = this.route.params.subscribe(params => {
+      this.id = params['id'];
+    });
+
+    this.orderService.getOrder('/Order', this.id).then(response => {
+      this._orderModel = response;
+      if (this.currentUser != null) {
+        this._orderModel.firstName = this.currentUser["firstName"];
+        this._orderModel.lastName = this.currentUser["lastName"];
+        this._orderModel.email = this.currentUser["emailAddress"];
+      }
+    }).catch(error => {
+      console.log("Got error:", error);
+    });
   }
 
   public continue() {
-    alert('Not implemented yet')
+    if (this._orderModel.orderTime != undefined
+      && this._orderModel.orderDate != undefined) {
+      var hours = this._orderModel.orderTime.getHours();
+      var minutes = this._orderModel.orderTime.getMinutes();
 
-    if(this._orderModel.orderTime != undefined 
-      && this._orderModel.orderDate != undefined){
-        var hours = this._orderModel.orderTime.getHours();
-        var minutes = this._orderModel.orderTime.getMinutes();
+      this._orderModel.orderDate.setHours(hours, minutes)
+      this._orderModel.orderTime = this._orderModel.orderDate;
+    }
 
-        this._orderModel.orderDate.setHours(hours, minutes)
-        this._orderModel.orderTime = this._orderModel.orderDate;
-      }
-
-    console.log(this._orderModel);
-    // this.router.navigateByUrl('/novaPorucha/popis');
+    this.orderService.updateOrder('/UpdateOrder', this.id, this._orderModel)
+      .then(response => {
+        if (response != undefined && response) {
+          this.router.navigate(['/novaPorucha/potvrdenie', this.id]);
+          // this.parentComponent.stepTwoStatus = "stepper-step stepper-step-isValid";
+          // this.parentComponent.stepThreeStatus = "stepper-step stepper-step-isActive";
+        }
+      }).catch(error => {
+        console.log("Got error:", error);
+      });
   }
 
-  // public continue() {
-  //   this.router.navigate(['/novaPorucha/kontaktneInformacie', this.id]);
-  //   this.parentComponennt.stepThreeStatus = "stepper-step stepper-step-isValid";
-  //   this.parentComponennt.stepFourStatus = "stepper-step stepper-step-isActive";
-  // }
-
   public back() {
-    this.router.navigate(['/novaPorucha/popis', 1]);
+    this.router.navigate(['/novaPorucha/popis', this.id]);
     this.parentComponennt.stepThreeStatus = "stepper-step";
   }
 }

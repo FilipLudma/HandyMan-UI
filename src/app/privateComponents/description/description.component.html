@@ -58,7 +58,9 @@
           </ng-template>
         </div>
       </div>
-      <hr>
+      <ng-template [ngIf]="displaySubCategorySection">
+        <hr>
+      </ng-template>
     </div>
 
     <!--SUBCATEGORY DESCRIPTION-->
@@ -85,7 +87,7 @@
         <div class="description-wrapper">
           <div class="description-switch-wrapper">
             <label for="description-attachment-switch">Pridat popis problému:</label>
-            <ui-switch class="description-toggle" [(ngModel)]="addDescription" name="addDescription" size="small"></ui-switch>
+            <ui-switch class="description-toggle" color="#4696e5" [(ngModel)]="addDescription" name="addDescription" size="small"></ui-switch>
           </div>
           <div class="description-container" *ngIf="addDescription" [@fadeInOut]>
             <span for="description">Stručne popíšte Váš problém</span>
@@ -100,7 +102,7 @@
         <div class="description-image-wrapper">
           <div class="description-switch-wrapper">
             <label for="description-switch"> Pridat fotku </label>
-            <ui-switch class="description-toggle" [(ngModel)]="addAttachment" name="addAttachment" size="small"></ui-switch>
+            <ui-switch class="description-toggle" color="#4696e5" [(ngModel)]="addAttachment" name="addAttachment" size="small"></ui-switch>
           </div>
           <div class="attachment-container" *ngIf="addAttachment" [@fadeInOut]>
             <app-image-upload></app-image-upload>

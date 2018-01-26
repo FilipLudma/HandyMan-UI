@@ -15,8 +15,8 @@ import { DivFlipModule } from '../../shared/components/div-flip/div-flip.module'
     CarouselModule,
     DivFlipModule,
   ],
-  declarations: [ ServicesComponent ],
-  exports: [ ServicesComponent ]
+  declarations: [],
+  exports: []
 })
 
 export class ServicesModule { }

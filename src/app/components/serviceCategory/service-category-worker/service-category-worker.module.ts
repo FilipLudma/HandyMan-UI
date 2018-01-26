@@ -3,14 +3,14 @@ import { Ng2PageScrollModule } from 'ng2-page-scroll';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { AuthService } from '../../../components/security/auth.service';
 import { SharedModule } from '../../../shared/shared.module'
 import { PopoverModule } from 'ng2-pop-over';
 import { RatingModule } from "ng2-rating";
 import { ModalModule } from "ng2-modal";
 
 import { ServiceCategoryWorkerComponent } from './service-category-worker.component';
-import { ServiceCategoryHowItWorksModule } from '../service-category-how-it-works/service-category-how-it-works.module'
+import { LightBoxComponent } from './../../../shared/components/light-box/light-box.component';
+import { LightBoxModule } from '../../../shared/components/light-box/light-box.module';
 
 @NgModule({
   imports: [
@@ -21,11 +21,11 @@ import { ServiceCategoryHowItWorksModule } from '../service-category-how-it-work
     ReactiveFormsModule,
     ModalModule,
     PopoverModule,
-    RatingModule,
-    ServiceCategoryHowItWorksModule
+    LightBoxModule,
+    RatingModule
   ],
   declarations: [
-    ServiceCategoryWorkerComponent,
+    ServiceCategoryWorkerComponent
   ],
   providers: []
 })

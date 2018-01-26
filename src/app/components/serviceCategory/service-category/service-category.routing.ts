@@ -8,8 +8,15 @@ import { ServiceCategoryWorkerComponent } from '../service-category-worker/servi
 const routes: Routes = [
     {
         path: '', component: ServiceCategoryComponent, children: [
-            { path: 'prehladSluzieb', component: ServiceCategoryComponent },
-            { path: 'pracant', component: ServiceCategoryWorkerComponent }]
+            { path: 'prehladslužieb', component: ServiceCategoryComponent },
+            { path: 'opraváreň', component: ServiceCategoryWorkerComponent },
+            { path: 'nábytkáreň', component: ServiceCategoryWorkerComponent },
+            { path: 'záhradkáreň', component: ServiceCategoryWorkerComponent },
+            { path: 'bezdrotáreň', component: ServiceCategoryWorkerComponent },
+            { path: 'sťahováreň', component: ServiceCategoryWorkerComponent },
+            { path: 'čistiareň', component: ServiceCategoryWorkerComponent },
+            { path: 'pomôckáreň', component: ServiceCategoryWorkerComponent }
+        ]
     }
 ];
 

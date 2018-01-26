@@ -1,5 +1,8 @@
 <div>
-  <input type="file" accept="image/*" (change)="changeListener($event)">
+  <button type="button" class="imgAddBtn">
+    <label for="imgadd"><span>Kliknutim vyberte fotku</span></label>
+  </button>
+  <input class="inputfile" id="imgadd" name="imgadd" type="file" accept="image/*" (change)="changeListener($event)">
 </div>
 
 <div class="column has-text-centered">
@@ -9,5 +12,4 @@
       <i class="img-delete-icon fa large fa-trash" aria-hidden="true" (click)="removeImg($event)"></i>
     </div>
   </div>
-
 </div>

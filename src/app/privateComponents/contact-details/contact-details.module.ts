@@ -4,10 +4,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { routing } from '../new-order/new-order.routing';
 
-import { AuthService } from '../../components/security/auth.service';
 import { SharedModule } from '../../shared/shared.module'
 import { ModalModule } from "ng2-modal";
-
 import { DatepickerModule } from 'angular2-material-datepicker'
 import { DateTimePickerModule } from 'ng-pick-datetime';
 

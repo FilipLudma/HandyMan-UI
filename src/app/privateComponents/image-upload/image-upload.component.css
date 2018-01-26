@@ -42,3 +42,36 @@ input[type="file"] {
     font-size: 125%;
     margin-left: 43%
 }
+
+.inputfile {
+  /* visibility: hidden etc. wont work */
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.inputfile{
+  pointer-events: none;
+}
+
+.imgAddBtn {
+    background-color: white; 
+    color: black; 
+    border-radius: 14px;
+}
+
+.imgAddBtn:hover{
+    background-color: #4696e5;
+    color: white;
+    -moz-transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+}
+
+.imgAddBtn:hover label{
+    color: white;
+    cursor: pointer;
+}

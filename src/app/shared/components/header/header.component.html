@@ -1,32 +1,58 @@
-<div role="navigation" class="navbar navbar-default">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-      </button>
-      <a href="#intro" class="navbar-brand scroll-to">
-        <img src="../../../images/home/img/logo.png" alt="">
-      </a>
-    </div>
-    <div id="navigation" class="collapse navbar-collapse">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a (click)="logOutModal.open()">Odhlásiť sa</a></li>
-      </ul>
+<header id="header" class="header" [class.fixed]="navIsFixed">
+  <div class="sticky-wrapper" *ngIf="navIsVisible" [@fadeInOut]="navIsVisible">
+    <div role="navigation" class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <!-- <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle">
+            <span class="icon-bar">test</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button> -->
+          <a pageScroll href="#text" class="navbar-brand scroll-to">
+            <img [class.logoAdjust]="!navIsFixed" src="../../../images/home/img/logo.png" alt="">
+          </a>
+        </div>
+
+        <!-- PUBLIC -->
+        <div class="collapse navbar-collapse navbar-right fa" *ngIf="!isPrivate" [class.navTransparent]="!navIsFixed">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a pageScroll href="#text">Ako to funguje</a>
+            </li>
+            <li>
+              <a pageScroll href="#services">Služby</a>
+            </li>
+            <li>
+              <a pageScroll href="#text">Pracanti</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- PRIVATE -->
+        <div id="navigation" class="collapse navbar-collapse navbar-right nav-position" *ngIf="isPrivate">
+          <div class="nav user-info navbar-left">
+            {{emailAddress}}
+          </div>
+          <div class="user-logout navbar-right" *ngIf="!!emailAddress">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a (click)="logOutModal.open()">Odhlásiť sa</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+</header>
 
-    <!-- log out modal -->
-  <modal #logOutModal [hideCloseButton]="true" class="logOutModal">
-      <modal-header>
-      </modal-header>
-      <modal-content>
-        <h6>Ste si istý, že sa chcete odhlásiť?</h6>
-      </modal-content>
-      <modal-footer>
-          <button class="btn btn-primary" (click)="logOut()">Potvrdiť</button>
-          <button class="btn btn-primary" (click)="logOutModal.close()">Zrušiť</button>
-      </modal-footer>
-  </modal>
+<!-- log out modal -->
+<modal #logOutModal [hideCloseButton]="true" class="logOutModal">
+  <modal-header>
+  </modal-header>
+  <modal-content>
+    <h6>Ste si istý, že sa chcete odhlásiť?</h6>
+  </modal-content>
+  <modal-footer>
+    <button class="btn btn-primary" (click)="logOut()">Potvrdiť</button>
+    <button class="btn btn-primary" (click)="logOutModal.close()">Zrušiť</button>
+  </modal-footer>
+</modal>

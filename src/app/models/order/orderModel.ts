@@ -1,4 +1,5 @@
 import { ImgAttachment } from "app/models/order/imgAttachment";
+import { imgBlob } from "app/models/common/ImgBlob";
 
 export class OrderModel {
     public id: string;
@@ -17,7 +18,8 @@ export class OrderModel {
     public subCategory: string = '';
     public description: string = '';
     public price: string = '';
-    public imgAttachments: ImgAttachment[] = new Array<ImgAttachment>();
+
+    public imgAttachments: Array<imgBlob>;
 
     constructor(values: Object = {}) {
         Object.assign(this, values);

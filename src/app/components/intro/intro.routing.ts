@@ -1,8 +1,8 @@
-import { ModuleWithProviders } from '@angular/core';
-import { RouterModule }        from '@angular/router';
+// import { ModuleWithProviders } from '@angular/core';
+// import { RouterModule }        from '@angular/router';
 
-import { IntroComponent }    from './intro.component';
+// import { IntroComponent }    from './intro.component';
 
-export const routing: ModuleWithProviders = RouterModule.forChild([
-  { path: 'index', component: IntroComponent}
-]);
+// export const routing: ModuleWithProviders = RouterModule.forChild([
+//   { path: 'index', component: IntroComponent}
+// ]);

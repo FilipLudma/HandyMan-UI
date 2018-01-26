@@ -3,8 +3,6 @@ import { OrdersService } from './orders.service';
 import { OrderModel } from '../../models/order/orderModel';
 
 import { ActivatedRoute } from '@angular/router';
-import { AuthService } from '../../../app/components/security/auth.service'
-import { AuthGuard } from '../../../app/components/security/auth-guard.service'
 import { AuthHttp, AuthConfig, tokenNotExpired } from 'angular2-jwt';
 
 @Component({
@@ -12,14 +10,11 @@ import { AuthHttp, AuthConfig, tokenNotExpired } from 'angular2-jwt';
   templateUrl: './orders.component.html',
   styleUrls: [
     './orders.component.css',
-     '../../shared/css/style.default.css'
-     ],
-  providers:[ 
+    '../../shared/css/style.default.css'
+  ],
+  providers: [
     OrdersService,
-    AuthService,
-    // AuthHttp,
-    // AuthConfig
-    ]
+  ]
 })
 export class OrdersComponent implements OnInit {
   private path;
@@ -29,15 +24,15 @@ export class OrdersComponent implements OnInit {
     private ordersService: OrdersService,
     private route: ActivatedRoute) { }
 
-    getOrders(): void{
+  getOrders(): void {
     this.ordersService.getOrders()
       .subscribe(orders => this.orders = orders);
-  } 
+  }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.path = params['selector'];
-      
+
       console.debug(this.route.params['status'])
       this.getOrders();
     })
