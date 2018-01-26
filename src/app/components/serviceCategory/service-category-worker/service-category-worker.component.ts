@@ -27,6 +27,7 @@ export class ServiceCategoryWorkerComponent implements OnInit {
   private _sub;
   private _albums: Array<IAlbum> = [];
 
+  public optionSelected: any;
   public categories: CategoryModel[];
   public selectedCategory: CategoryModel = new CategoryModel();
   public subCategoriesToDisplay: SubCategoryModel[] = new Array<SubCategoryModel>();
@@ -43,6 +44,10 @@ export class ServiceCategoryWorkerComponent implements OnInit {
     private headerComponent: HeaderComponent,
     private router: Router) {
 
+  }
+
+  optionSelected1(event) {
+    console.log(event);//option value will be sent as event
   }
 
   ngOnInit() {
@@ -69,7 +74,8 @@ export class ServiceCategoryWorkerComponent implements OnInit {
           }
 
           console.log('SELECTED CATEGORY', this.selectedCategory);
-
+          console.log('OTHER SUB CATEGORIES', this.subCategoriesForDropDown);
+          
           this.back = "../../../../images/OccupationImages/" + this.selectedCategory.categoryType + ".png";
 
           for (let i = 1; i < 5; i++) {
