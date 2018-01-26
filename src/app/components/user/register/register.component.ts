@@ -7,9 +7,11 @@ import { UserService } from '../../../services/user/user.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css'],
-  providers: [UserService, AlertService]
-  
+  providers: [UserService, AlertService],
+  styleUrls: [
+    './register.component.css',
+    '../login/ext-css/main.css',
+    '../login/ext-css/util.css']
 })
 export class RegisterComponent implements OnInit {
   public model: any = {};

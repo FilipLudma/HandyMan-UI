@@ -234,6 +234,22 @@ h2:after {
         font-size: 18px;
     }
 
+@media screen and (max-width: 480px) {
+    .how-it-works-section {
+        padding: 0;
+    }
+
+    .how-it-works-section .order-step-container {
+        width: 100%;
+        margin-top: 60px;
+        text-align: center;
+    }
+
+        .how-it-works-section .order-step-container:before {
+            background: none;
+        }
+}
+
 /*---------- Animations ----------*/
 
 @-webkit-keyframes numFlip {

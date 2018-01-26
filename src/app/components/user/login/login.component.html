@@ -1,6 +1,7 @@
-<div class="col-md-6 col-md-offset-3">
+<!-- <div class="col-md-6 col-md-offset-3">
   <h2>Prihlásenie</h2>
   <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+   
     <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !emailAddress.valid }">
       <label for="emailAddress">Emailová Adresa</label>
       <input type="text" class="form-control" name="emailAddress" [(ngModel)]="model.emailAddress" #emailAddress="ngModel" required
@@ -8,16 +9,76 @@
       <div *ngIf="f.submitted && !emailAddress.valid" class="help-block"> Prosíme zadajte emailovú adresu</div>
       <div *ngIf="f.submitted && emailAddress.errors != null && emailAddress.errors.pattern" class="help-block"> Emailová adresa ma nesprávny formát</div>
     </div>
+    
     <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
       <label for="password">Heslo</label>
       <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" required />
       <div *ngIf="f.submitted && !password.valid" class="help-block">Prosíme zadajte heslo</div>
     </div>
+   
     <div class="form-group">
       <button [disabled]="loading" class="btn btn-primary">Login</button>
       <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
       />
-      <a [routerLink]="['/register']" class="btn btn-link">Register</a>
+      <a [routerLink]="['/register']" class="btn btn-link">Register</a>   
     </div>
+  
   </form>
+</div> -->
+
+<div class="limiter">
+  <div class="container-login100">
+    <div class="wrap-login100">
+      <div class="login100-form-title" style="background-image: url('../../../../images/Login/bg.png');">
+        <span class="login100-form-title-1">
+          Prihlásenie
+        </span>
+      </div>
+
+      <form class="login100-form" name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+
+        <div class="wrap-input100 validate-input m-b-26" [ngClass]="{ 'has-error': f.submitted && !emailAddress.valid }">
+          <span class="label-input100">Emailová Adresa</span>
+          <input class="input100" type="text" name="emailAddress" [(ngModel)]="model.emailAddress" #emailAddress="ngModel" required
+            pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" />
+          <span class="focus-input100"></span>
+        </div>
+        <div *ngIf="f.submitted && !emailAddress.valid && !emailAddress.errors.pattern" class="help-block"> Prosíme zadajte platnú emailovú adresu</div>
+        <div *ngIf="f.submitted && emailAddress.errors != null && emailAddress.errors.pattern" class="help-block"> Emailová adresa ma nesprávny formát</div>
+
+        <div class="wrap-input100 validate-input m-b-18" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+          <span class="label-input100">Heslo</span>
+          <input class="input100" type="password" name="password" [(ngModel)]="model.password" #password="ngModel" required />
+          <span class="focus-input100"></span>
+        </div>
+        <div *ngIf="f.submitted && !password.valid" class="help-block">Prosíme zadajte heslo</div>
+
+        <div class="flex-sb-m w-full p-b-30">
+          <div class="contact100-form-checkbox">
+            <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+            <label class="label-checkbox100" for="ckb1">
+              Zapamätať prihlásenie?
+            </label>
+          </div>
+
+          <div>
+            <a href="#" class="txt1">
+              Zabudnuté Heslo?
+            </a>
+          </div>
+        </div>
+
+        <div class="container-login100-form-btn">
+          <button class="login100-form-btn">
+            Prihlásiť sa
+          </button>
+          <button class="login100-form-btn m-l-25"  [routerLink]="['/register']">
+            Zaregistrovať sa
+          </button>
+        </div>
+      </form>
+
+
+    </div>
+  </div>
 </div>

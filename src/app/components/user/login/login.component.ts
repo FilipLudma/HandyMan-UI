@@ -8,7 +8,11 @@ import { Config } from '../../../services/config';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
+  styleUrls: [
+    './login.component.css',
+    './ext-css/main.css',
+    './ext-css/util.css'
+  ],
   providers: [AuthenticationService, AlertService]
 })
 export class LoginComponent implements OnInit {
@@ -32,6 +36,8 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.loading = true;
+
+    console.log('LOGIN ERROR::', this.model);
     this.authenticationService.login(this.model.emailAddress, this.model.password)
       .then(
       data => {
