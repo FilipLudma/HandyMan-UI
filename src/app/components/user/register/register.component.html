@@ -42,20 +42,6 @@
 
       <form class="login100-form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
 
-        <div class="wrap-input100 validate-input m-b-26" [ngClass]="{ 'has-error': f.submitted && !firstName.valid }">
-          <span class="label-input100">Meno</span>
-          <input type="text" class="input100" name="firstName" [(ngModel)]="model.firstName" #firstName="ngModel" required />
-          <span class="focus-input100"></span>
-        </div>
-        <div *ngIf="f.submitted && !firstName.valid" class="help-block">Prosíme zadajte meno</div>
-
-        <div class="wrap-input100 validate-input m-b-26" [ngClass]="{ 'has-error': f.submitted && !firstName.valid }">
-          <span class="label-input100">Priezvisko</span>
-          <input type="text" class="input100" name="lastName" [(ngModel)]="model.lastName" #lastName="ngModel" required />
-          <span class="focus-input100"></span>
-        </div>
-        <div *ngIf="f.submitted && !lastName.valid" class="help-block">Prosíme zadajte prezvisko</div>
-
         <div class="wrap-input100 validate-input m-b-26" [ngClass]="{ 'has-error': f.submitted && !emailAddress.valid }">
           <span class="label-input100">Emailová Adresa</span>
           <input class="input100" type="text" name="emailAddress" [(ngModel)]="model.emailAddress" #emailAddress="ngModel" required
@@ -72,6 +58,14 @@
         </div>
         <div *ngIf="f.submitted && !password.valid" class="help-block">Prosíme zadajte heslo</div>
 
+        <div class="wrap-input100 validate-input m-b-40" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+          <span class="label-input100">Potvrdte Heslo</span>
+          <input class="input100" type="password" name="password" [(ngModel)]="model.confirmPassword" #confirmPassword="ngModel" required
+          />
+          <span class="focus-input100"></span>
+        </div>
+        <div *ngIf="f.submitted && password.value !== confirmPassword.value" class="help-block">Heslá sa nezhodujú</div>
+
         <div class="container-login100-form-btn">
           <button class="login100-form-btn">
             Zaregistrovať sa
@@ -82,6 +76,11 @@
         </div>
       </form>
 
+      <div *ngIf="!!errorMessages" class="register-error-messages">
+        <div class="error-message" *ngFor="let error of errorMessages">
+          {{error.description}}
+        </div>
+      </div>
 
     </div>
   </div>

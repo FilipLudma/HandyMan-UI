@@ -1,173 +1,132 @@
-.description-form
-{
-    width: 25%;
+.m-auto {
+  margin: 0 auto;
 }
 
-.description-text{
-    width: 90%;
-    height: 15rem;
-    text-align: left;
-    margin-bottom: 2.5%;
+.cat-wrapper {
+  display: inline-block;
+  width: 14%;
+  font-family: inherit;
 }
 
-.description-mobile{
-    width: 25.2%;
+.cat-wrapper label {
+  display: inline-block;
+  font-family: inherit;
 }
 
-.description-category-container{
-    display: table-cell;
-    margin-bottom: 10px;
+@media screen and (max-width: 768px) {
+  .cat-wrapper {
+    width: 30%;
+  }
+  .cat-wrapper label {
+    width: 80px;
+  }
+
+  .subcategory label {
+    font-size: 11px;
+  }
 }
 
-.description-category{
-    padding: 10px 10px;
-    margin-right: 4px;
-    border-radius: 5px;
+@media screen and (max-width: 375px) {
+  .cat-wrapper {
+    width: 50%;
+  }
+  .cat-wrapper label {
+    width: 80px;
+  }
+  h1 {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .subcategory {
+    padding-left: 0 !important;
+  }
 }
 
-.ng-valid[required], .ng-valid.required  {
-  border-left: 5px solid #42A948; /* green */
-}
-.ng-invalid:not(form)  {
-  border-left: 5px solid #a94442; /* red */
-}
-
-.description-switch-wrapper{
-    width: 33%;
-    margin-bottom: 1.5%;
-}
-
-.description-toggle{
-    float: right;
-    display: flex;
-}
-
-.description-attachments label{
-    font-size: 1.1em;
+/* RADION BTN START */
+@keyframes click-wave {
+  0% {
+    height: 40px;
+    width: 40px;
+    opacity: 0.35;
+    position: relative;
+    border: none;
+  }
+  100% {
+    height: 200px;
+    width: 200px;
+    margin-left: -80px;
+    margin-top: -80px;
+    opacity: 0;
+    border: none;
+  }
 }
 
-.description-reminder{
-    margin-bottom: 2.8rem;
+.option-input {
+  outline: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  position: relative;
+  top: 5px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  transition: all 0.15s ease-out 0s;
+  background: #cbd1d8;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  margin-left: 10px;
+  outline: none;
+  position: relative;
+  z-index: 1000;
 }
 
-.price-wrapper{
-    float: right;
+.option-input:hover {
+  background: #9faab7;
 }
 
-.price-wrapper .service-price{
-    font-size: 3rem;
+.option-input:checked {
+  background: #4696e5;
 }
 
-.description-margin{
-    margin-bottom: 10px;
+.option-input:checked::before {
+  width: 20px;
+  position: absolute;
+  content: '✔';
+  display: inline-block;
+  font-size: 15px;
+  text-align: center;
+  line-height: 21px;
+  outline: 0;
 }
 
-.description-subcategory-container {
-    display: table-cell;
+.option-input:checked::after {
+  -webkit-animation: click-wave 0.65s;
+  -moz-animation: click-wave 0.65s;
+  animation: click-wave 0.65s;
+  background: #4696e5;
+  content: '';
+  display: block;
+  position: relative;
+  z-index: 100;
+  outline: 0;
 }
 
-input[type="radio"]{
-    width: auto;
+.option-input:focus {
+  outline: none !important;
 }
 
-input[type="radio"] + label
-{
-    font-size: 1.2em;
-    font-weight: bolder;
-    padding-right: 0;
+.option-input.radio {
+  border-radius: 50%;
 }
 
-.btn-secondary, .btn-secondary:visited{
-     color: #5091da; 
-     border: 1px solid #5091da; 
-     background-color: white; 
-}
-.btn-secondary:hover{
-     border: 1px solid #5091da; 
-     background-color: #5091da; 
-     color: white;
+.option-input.radio::after {
+  border-radius: 50%;
 }
 
-a, .link {
-    color: #5091da;
-    text-decoration: none;
-    cursor: pointer;
-    font-weight: normal;
-    text-decoration: none;
-}
-
-.btn {
-    font-weight: normal;
-    color: #545e69;
-    border: 1px solid #b1b9c3;
-    background-color: white;
-    outline: none;
-    cursor: pointer;
-    -webkit-transition-property: color, border-color, box-shadow;
-    transition-property: color, border-color, box-shadow;
-    -webkit-transition-timing-function: ease;
-    transition-timing-function: ease;
-    -webkit-transition-duration: 0.16s;
-    transition-duration: 0.16s;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-.info-btn {
-    font-size: 1.55rem;
-    margin-left: 4px;
-    text-transform: none;
-}
-
-.category-btn {
-    font-size: 1.20rem;
-    margin-left: 4px;
-}
-
-.flex-center {
-    display: flex;
-    justify-content: center;
-}
-
-.underline-text {
-    content: " ";
-    display: block;
-    width: 40%;
-    height: 2px;
-    margin: 20px auto 20px;
-    background: #5091da;
-}
-
-.category-info-text{
-    text-transform: uppercase;
-    color: #5091da;
-    margin-bottom: 1.25%;
-}
-
-.subCategoriesContainer{
-    display: table-cell;
-    padding: 0;
-    margin: auto;
-}
-
-.categoryInfo{
-    margin-bottom: 0;
-    margin-left: 23px;
-    padding: 8px;
-}
-
-.categoryTypeAdjustment{
-    margin-top: 15px;
-}
-
-.subcategory{
-    margin-bottom: 10px;
-    display: unset;
-}
-
-.subcategoryLabel{
-    display: unset;
-}
+/* RADION BTN END */

@@ -36,7 +36,6 @@
       </div>
 
       <form class="login100-form" name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
-
         <div class="wrap-input100 validate-input m-b-26" [ngClass]="{ 'has-error': f.submitted && !emailAddress.valid }">
           <span class="label-input100">Emailová Adresa</span>
           <input class="input100" type="text" name="emailAddress" [(ngModel)]="model.emailAddress" #emailAddress="ngModel" required
@@ -55,7 +54,7 @@
 
         <div class="flex-sb-m w-full p-b-30">
           <div class="contact100-form-checkbox">
-            <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+            <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me" [(ngModel)]="model.rememberMe">
             <label class="label-checkbox100" for="ckb1">
               Zapamätať prihlásenie?
             </label>
@@ -72,12 +71,22 @@
           <button class="login100-form-btn">
             Prihlásiť sa
           </button>
-          <button class="login100-form-btn m-l-25"  [routerLink]="['/register']">
+          <button class="login100-form-btn m-l-25" [routerLink]="['/register']">
             Zaregistrovať sa
           </button>
         </div>
       </form>
 
+      <div class="row">
+          <hr>
+        <button class="loginBtn loginBtn--facebook">
+          Login with Facebook
+        </button>
+
+        <button class="loginBtn loginBtn--google" (click)="signInWithGoogle()">
+          Login with Google
+        </button>
+      </div>
 
     </div>
   </div>

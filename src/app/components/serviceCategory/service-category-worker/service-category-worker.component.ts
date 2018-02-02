@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { OrderModel } from '../../../models/order/orderModel';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
@@ -19,8 +19,9 @@ import { HeaderComponent } from '../../../shared/components/header/header.compon
     './service-category-worker.component.css',
     '../../../shared/css/font.family.css'
   ],
-  providers: [OrderService, CategoryService, HeaderComponent]
+  providers: [OrderService, CategoryService, HeaderComponent],
 })
+
 export class ServiceCategoryWorkerComponent implements OnInit {
   private _newOrderId: string;
   private _subscription: any;

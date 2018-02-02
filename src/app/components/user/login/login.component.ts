@@ -5,6 +5,9 @@ import { AlertService } from '../../../services/common/alert.service';
 import { AuthenticationService } from '../../../services/common/authentication.service';
 import { Config } from '../../../services/config';
 
+import { AuthService } from "angular4-social-login";
+import { FacebookLoginProvider, GoogleLoginProvider, SocialUser } from "angular4-social-login";
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -20,9 +23,13 @@ export class LoginComponent implements OnInit {
   public loading = false;
   public returnUrl: string;
 
+  private user: SocialUser;
+  private loggedIn: boolean;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
+    private authService: AuthService,
     private authenticationService: AuthenticationService,
     private alertService: AlertService) { }
 
@@ -32,20 +39,45 @@ export class LoginComponent implements OnInit {
 
     // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+
+    this.authService.authState.subscribe((user) => {
+      this.user = user;
+      this.loggedIn = (user != null);
+    });
   }
 
   login() {
     this.loading = true;
-
-    console.log('LOGIN ERROR::', this.model);
-    this.authenticationService.login(this.model.emailAddress, this.model.password)
-      .then(
+    this.authenticationService.login(this.model.emailAddress, this.model.password, this.model.rememberMe).then(
       data => {
+        if (data === "true") {
+          this.router.navigate([this.returnUrl]);
+        }
+      },
+      error => {
+        this.alertService.error(error._body);
+        this.loading = false;
+      });
+  }
+
+  signInWithGoogle(): void {
+    this.loading = true;
+    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then(
+      data => {
+        console.log("RETURN URL::", data);
         this.router.navigate([this.returnUrl]);
       },
       error => {
         this.alertService.error(error._body);
         this.loading = false;
       });
+  }
+
+  signInWithFB(): void {
+    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
+  }
+
+  signOut(): void {
+    this.authService.signOut();
   }
 }

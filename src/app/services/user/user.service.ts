@@ -10,7 +10,7 @@ export class UserService {
     constructor(private http: Http, private config: Config) { }
 
     getAll() {
-        return this.http.get(this.config.UserUrl + '/users', this.jwt())
+        return this.http.get(this.config.BaseUrl + '/users', this.jwt())
             .map(response => {
                 return response.json() || { success: false, message: "No response from server" };
             }).catch((error: Response | any) => {
@@ -19,7 +19,7 @@ export class UserService {
     }
 
     getById(_id: string) {
-        return this.http.get(this.config.UserUrl + '/users/' + _id, this.jwt())
+        return this.http.get(this.config.BaseUrl + '/users/' + _id, this.jwt())
             .map(response => {
                 return response.json() || { success: false, message: "No response from server" };
             }).catch((error: Response | any) => {
@@ -28,17 +28,17 @@ export class UserService {
     }
 
     create(user: User) {
-        return this.http.post(this.config.UserUrl + '/users/register', user, this.jwt())
+        return this.http.post(this.config.BaseUrl + '/users/register', user, this.jwt())
             .toPromise();
     }
 
     update(user: User) {
-        return this.http.put(this.config.UserUrl + '/users/' + user._id, user, this.jwt())
+        return this.http.put(this.config.BaseUrl + '/users/' + user._id, user, this.jwt())
             .toPromise();
     }
 
     delete(_id: string) {
-        return this.http.delete(this.config.UserUrl + '/users/' + _id, this.jwt())
+        return this.http.delete(this.config.BaseUrl + '/users/' + _id, this.jwt())
             .toPromise();
     }
 

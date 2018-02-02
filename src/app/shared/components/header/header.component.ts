@@ -37,7 +37,7 @@ export class HeaderComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     @Inject(DOCUMENT) private document: Document) {
-    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.currentUser = JSON.parse(JSON.stringify(localStorage.getItem('currentUser')));
     if (this.currentUser != null) {
       this.emailAddress = this.currentUser["emailAddress"];
     }
