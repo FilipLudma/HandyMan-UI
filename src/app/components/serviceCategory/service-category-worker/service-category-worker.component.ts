@@ -73,9 +73,6 @@ export class ServiceCategoryWorkerComponent implements OnInit {
             }
           }
 
-          console.log('SELECTED CATEGORY', this.selectedCategory);
-          console.log('OTHER SUB CATEGORIES', this.subCategoriesForDropDown);
-          
           this.back = "../../../../images/OccupationImages/" + this.selectedCategory.categoryType + ".png";
 
           for (let i = 1; i < 5; i++) {
@@ -99,11 +96,15 @@ export class ServiceCategoryWorkerComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
-  createOrderWithCategory() {
-    console.log('Create order with category');
-    this.orderObjectService.orderCategory();
-
-    console.log(this.orderObjectService.getOrder());
+  createOrderWithCategory(selectedSubCategory) {
+    if (!!selectedSubCategory) {
+      localStorage.setItem('SelectedCategory', this.selectedCategory.categoryName)
+      localStorage.setItem('SelectedSubCategory', selectedSubCategory)
+    } else {
+      localStorage.removeItem('SelectedCategory');
+      localStorage.removeItem('SelectedSubCategory');
+    }
+    
     this.router.navigate(['/novaPorucha/adresa']);
   }
 

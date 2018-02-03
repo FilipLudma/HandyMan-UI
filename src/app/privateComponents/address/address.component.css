@@ -43,3 +43,15 @@ img { max-width: 100%; }
 .infoModal-content{
     text-align: center;
 }
+
+@media screen and (max-width: 1090px) {
+    .address-title {
+        font-size: 25px !important;
+        margin: 0;
+    }
+
+    hr {
+        margin: 15px 0;
+    }
+
+}

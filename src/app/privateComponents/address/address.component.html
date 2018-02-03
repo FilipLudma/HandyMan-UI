@@ -9,7 +9,7 @@
 
     <div class="address-input">
       <small class="address-alert alert alert-danger" [hidden]="myForm.controls.address.valid || (myForm.controls.address.pristine && !submitted)">
-        Prosim vyplnte adresu
+        Prosím zadajte adresu
       </small>
       <input type="text" class="form-control address-input" placeholder="Zadaj adresu..." autocorrect="off" autocapitalize="off"
         spellcheck="off" #search formControlName="address">

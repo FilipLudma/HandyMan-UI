@@ -68,6 +68,23 @@ h2 {
         transform: scale(1.1); */
     }   
 
+.other-services {
+    padding: 1px;
+    background-color: #ccc;
+    opacity: 0.85;
+}
+    .other-services h4 {
+        font-weight: 600;
+        color: #747474;
+    }
+        .other-services:hover h4 {
+            color: #fff;
+        }
+    .other-services:hover {
+        transform: scale(1.1);
+        cursor: pointer;
+    }
+
 .box-services { 
     padding: 30px 20px 20px;
     border-bottom: 2.5px solid #d4d4d4;
@@ -145,6 +162,11 @@ h2 {
     
     .service-category-detai {
         background-attachment: scroll;
+    }
+
+    .other-services {
+        margin-left: 15px;
+        padding-left: 15px;
     }
 }
 
