@@ -31,13 +31,31 @@ import { AuthGuard } from './services/common/auth.guard';
 import { Config } from './services/config';
 import { HeaderComponentModule } from 'app/shared/components/header/header.module';
 
+import { GoogleLoginProvider } from "angular4-social-login";
+import { SocialLoginModule, AuthServiceConfig } from "angular4-social-login";
+
+let config = new AuthServiceConfig([
+  {
+    id: GoogleLoginProvider.PROVIDER_ID,
+    provider: new GoogleLoginProvider("108844314724-bl11t2jahg7tldukdc9t1plta8cln5ut.apps.googleusercontent.com")
+  },
+  // {
+  //   id: FacebookLoginProvider.PROVIDER_ID,
+  //   provider: new FacebookLoginProvider("Facebook-App-Id")
+  // }
+]);
+
+export function provideConfig() {
+  return config;
+}
+
 @NgModule({
   declarations: [
     AppComponent,
     AlertComponent,
     LoginComponent,
     RegisterComponent,
-   // HeaderComponent,
+    // HeaderComponent,
     IntroComponent,
     HomeComponent,
     CustomComponent,
@@ -54,7 +72,8 @@ import { HeaderComponentModule } from 'app/shared/components/header/header.modul
     ModalModule,
     BrowserAnimationsModule,
     HeaderComponentModule,
-    routing
+    routing,
+    SocialLoginModule
   ],
   providers: [
     OrderObjectService,
@@ -63,7 +82,11 @@ import { HeaderComponentModule } from 'app/shared/components/header/header.modul
     AlertService,
     AuthenticationService,
     UserService,
-    Config
+    Config,
+    {
+      provide: AuthServiceConfig,
+      useFactory: provideConfig
+    }
   ],
   bootstrap: [AppComponent]
 })

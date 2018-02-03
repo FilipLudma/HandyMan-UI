@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { CategoryService } from '../../services/category/category.service';
@@ -11,9 +11,9 @@ import { CategoryModel } from 'app/models/categoryModel';
     './services.component.css',
     '../../shared/css/font.family.css'
   ],
-  providers: [CategoryService]
-
+  providers: [CategoryService],
 })
+
 export class ServicesComponent implements OnInit {
   public categories: CategoryModel[];
   public serviceImg: String = "../../../images/OccupationImages/";

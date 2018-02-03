@@ -14,6 +14,7 @@ import { AccordionModule } from "ng2-accordion";
 import { SubCategoryModel } from "app/models/subCategoryModel";
 import { ImgAttachment } from 'app/models/order/imgAttachment';
 import { imgBlob } from 'app/models/common/ImgBlob';
+import { combineAll } from 'rxjs/operators/combineAll';
 
 @Component({
   selector: 'app-description',
@@ -69,11 +70,14 @@ export class DescriptionComponent implements OnInit {
       console.log("Got error:", error);
     });
 
-    this.orderService.getOrder('/Order', this.id).then(response => {
-      this.orderModel = response;
-    }).catch(error => {
-      console.log("Got error:", error);
-    });
+    // this.orderService.getOrder('/Order', this.id).then(response => {
+    //   console.log('GET ORDER RESPONSE::', response);
+    //   if (!!response) {
+    //     // this.orderModel = response;
+    //   }
+    // }).catch(error => {
+    //   console.log("Got error:", error);
+    // });
   }
 
   public onDescriptionChange() {
