@@ -11,7 +11,7 @@ import { HowItWorksModel } from 'app/models/common/howItWorksModel';
 })
 export class CustomComponent implements OnInit {
 
-  private _steps: HowItWorksModel[] = new Array<HowItWorksModel>();
+  public _steps: HowItWorksModel[] = new Array<HowItWorksModel>();
 
   constructor() { }
 

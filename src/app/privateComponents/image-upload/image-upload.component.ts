@@ -16,7 +16,7 @@ import { ImgAttachment } from 'app/models/order/imgAttachment';
 })
 
 export class ImageUploadComponent implements OnInit {
-  private _albums: Array<IAlbum> = [];
+  public _albums: Array<IAlbum> = [];
   private _options: Object = {};
   private _subscription: Subscription;
   private image: any;

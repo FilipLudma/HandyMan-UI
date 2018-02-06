@@ -26,8 +26,8 @@ export class ServiceCategoryWorkerComponent implements OnInit {
   private _newOrderId: string;
   private _subscription: any;
   private _sub;
-  private _albums: Array<IAlbum> = [];
-
+  
+  public _albums: Array<IAlbum> = [];
   public optionSelected: any;
   public categories: CategoryModel[];
   public selectedCategory: CategoryModel = new CategoryModel();

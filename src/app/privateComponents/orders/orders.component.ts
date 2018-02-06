@@ -18,7 +18,7 @@ import { AuthHttp, AuthConfig, tokenNotExpired } from 'angular2-jwt';
 })
 export class OrdersComponent implements OnInit {
   private path;
-  private orders: OrderModel[];
+  public orders: OrderModel[];
 
   constructor(
     private ordersService: OrdersService,

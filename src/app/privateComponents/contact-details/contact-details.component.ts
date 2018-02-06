@@ -23,9 +23,8 @@ import { User } from 'app/models/user/user';
 export class ContactDetailsComponent implements OnInit {
   private id;
   private sub;
-  private _orderModel: OrderModel = new OrderModel();
   private _subscription: any;
-
+  public _orderModel: OrderModel = new OrderModel();
   // Datetime picker localization
   public svk = {
     firstDayOfWeek: 1,

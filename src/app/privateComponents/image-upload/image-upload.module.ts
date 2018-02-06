@@ -17,8 +17,7 @@ import { LightboxModule } from 'angular2-lightbox';
     routing
   ],
   declarations: [
-    ImageUploadComponent,
-    FileSelectDirective
+    ImageUploadComponent
   ],
   exports: [ImageUploadComponent]
 })

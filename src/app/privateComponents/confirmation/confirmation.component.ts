@@ -21,7 +21,7 @@ import { imgBlob } from 'app/models/common/ImgBlob';
 export class ConfirmationComponent implements OnInit {
   private _id;
   private _sub;
-  private _orderModel: OrderModel = new OrderModel();
+  public _orderModel: OrderModel = new OrderModel();
   private _subscription: any;
 
   constructor(

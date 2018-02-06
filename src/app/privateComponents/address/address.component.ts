@@ -103,7 +103,7 @@ export class AddressComponent implements OnInit {
     });
   }
 
-  public continue() {
+  public continue(val1, val2) {
     this.submitted = true;
 
     // Check availability radius

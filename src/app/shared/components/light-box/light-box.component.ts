@@ -8,7 +8,7 @@ import { Lightbox, LightboxConfig, LightboxEvent, LIGHTBOX_EVENT, IEvent, IAlbum
 })
 
 export class LightBoxComponent implements OnInit {
-  private _albums: Array<IAlbum> = [];
+  public _albums: Array<IAlbum> = [];
 
   @Input() albums;
 
