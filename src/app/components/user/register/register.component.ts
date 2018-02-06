@@ -46,11 +46,12 @@ export class RegisterComponent implements OnInit {
     this.authenticationService.register(this.model)
       .then(
       data => {
-        if (data.succeeded === "true") {
+        if (!!data && data.status !== 400) {
+          this.alertService.success('Registration successful', true);
           this.router.navigate(['/prihlasenie']);
         } else {
-          console.log()
-          this.errorMessages = data.errors;
+          console.log('data.value')
+          this.errorMessages = data.value;
         }
       },
       error => {
@@ -58,5 +59,5 @@ export class RegisterComponent implements OnInit {
         this.loading = false;
       });
   }
-  
+
 }

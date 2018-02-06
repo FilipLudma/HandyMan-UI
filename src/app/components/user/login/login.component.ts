@@ -50,8 +50,13 @@ export class LoginComponent implements OnInit {
     this.loading = true;
     this.authenticationService.login(this.model.emailAddress, this.model.password, this.model.rememberMe).then(
       data => {
-        if (data) {
-          this.router.navigate([this.returnUrl]);
+        if (!!data && !!data._body) {
+          var response = JSON.parse(data._body);
+          if (response.statusCode !== 401) {
+            localStorage.removeItem('currentUser');
+            localStorage.setItem('currentUser',JSON.stringify(response));
+            this.router.navigate([this.returnUrl]);
+          }
         }
       },
       error => {

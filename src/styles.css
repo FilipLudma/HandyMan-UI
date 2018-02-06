@@ -652,7 +652,7 @@ p.social a.email {
 
 .navbar-brand {
   float: left;
-  padding: 0 15px;
+  padding: 0 15px !important;
   font-size: 18px;
   line-height: 20px;
   height: 50px;
@@ -760,8 +760,8 @@ p.social a.email {
 }
 
 .navbar-default {
-  background-color: #ffffff;
-  border-bottom-color: #e6e6e6;
+  background-color: #ffffff !important;
+  border-bottom-color: #e6e6e6 !important;
 }
 
 .navbar-default .navbar-brand {

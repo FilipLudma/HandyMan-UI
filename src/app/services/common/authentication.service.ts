@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, Response } from '@angular/http';
+import { Http, Headers, Response, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map'
 
@@ -10,28 +10,25 @@ export class AuthenticationService {
     constructor(private http: Http, private config: Config) { }
 
     login(emailAddress: string, password: string, rememberMe: boolean) {
-        return this.http.post(this.config.UserUrl + 'user/authenticate', { email: emailAddress, password: password, rememberMe: false })
+        return this.http.post(this.config.UserUrl + 'users/authenticate', { emailAddress: emailAddress, password: password, rememberMe: false })
             .map((response: any) => {
-                if (!!response) {
-                    localStorage.setItem('currentUser', response);
-                    return true;
-                }
+                return response;
             }).catch((error: Response | any) => {
                 return Observable.throw(error.json());
             }).toPromise();
     }
 
     register(model: any) {
-        return this.http.post(this.config.UserUrl + 'account/register', { email: model.emailAddress, password: model.password, confirmPassword: model.confirmPassword })
+        return this.http.post(this.config.UserUrl + 'users/register', { emailAddress: model.emailAddress, password: model.password })
             .map((response: any) => {
-                return JSON.parse(response._body);
+                return response;
             }).catch((error: Response | any) => {
                 return Observable.throw(error.json());
             }).toPromise();
     }
 
     loggedin() {
-        return this.http.get(this.config.apiBaseUrl + 'account/loggedin')
+        return this.http.get(this.config.UserUrl + 'users/authenticated', this.jwt())
             .map((response: any) => {
                 return response;
             }).catch((error: Response | any) => {
@@ -42,5 +39,15 @@ export class AuthenticationService {
     logout() {
         // remove user from local storage to log user out
         localStorage.removeItem('currentUser')
+    }
+
+    // private helper methods
+    private jwt() {
+        // create authorization header with jwt token
+        let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        if (currentUser) {
+            let headers = new Headers({ 'Authorization': 'Bearer ' + currentUser.token });
+            return new RequestOptions({ headers: headers });
+        }
     }
 }

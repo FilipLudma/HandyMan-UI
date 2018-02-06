@@ -60,8 +60,7 @@ export class HeaderComponent implements OnInit {
     let number = window.scrollY;
     let isMainPage = this.document.getElementById('text');
     if (isMainPage) {
-      let firstSectionOffset = isMainPage.offsetHeight - 80;
-      // console.log(number);
+      let firstSectionOffset = isMainPage.offsetHeight - 240;
       if (firstSectionOffset) {
         if (number > firstSectionOffset) {
           this.navIsVisible = true;
