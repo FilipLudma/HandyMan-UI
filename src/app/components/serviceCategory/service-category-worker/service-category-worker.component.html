@@ -29,32 +29,32 @@
   </div>
 </section>
 
-<section class="section-others" *ngIf="subCategoriesForDropDown.length > 0">
-  <hr>
-  <!-- <h4>Dalsie sluzby</h4>
+
+<div class="row service-category-row">
+  <div class="col-sm-5 col-sm-6"></div>
+  <div class="col-sm-2 col-sm-6">
+    <div class="other-services" (click)='createOrderWithCategory(null)'>
+      <div class="icon text-center">
+        <h4 class="heading-description-services">Ďalšie služby</h4>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-5 col-sm-6"></div>
+</div>
+
+<hr>
+<!-- <section class="section-others" *ngIf="subCategoriesForDropDown.length > 0"> -->
+
+<!-- <h4>Dalsie sluzby</h4>
   <select class='btn btn-default dropdown-toggle select-option' required [(ngModel)]='optionSelected' (ngModelChange)='optionSelected1($event)'>
     <option class='option btn btn-default' *ngFor="let sub of subCategoriesForDropDown; let i = index" [value]="sub.orderSubCategoryID">
       {{sub.subCategoryName}}
     </option>
   </select> -->
-  <div class="row service-category-row">
-    <div class="col-sm-5 col-sm-6"></div>
-    <div class="col-sm-2 col-sm-6">
-      <div class="other-services" (click)='createOrderWithCategory(null)'>
-        <div class="icon">
-          <h4 class="heading-description-services">Ďalšie služby</h4>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-5 col-sm-6"></div>
 
-  </div>
-</section>
+<!-- </section> -->
 
-<hr>
 
-<section>
-  <div class="row img-preview">
-    <app-light-box class="img-preview-box text-center" [albums]="_albums"></app-light-box>
-  </div>
-</section>
+<div class="row img-preview">
+  <app-light-box class="img-preview-box text-center" [albums]="_albums"></app-light-box>
+</div>

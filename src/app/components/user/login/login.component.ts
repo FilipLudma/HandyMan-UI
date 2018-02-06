@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
     this.loading = true;
     this.authenticationService.login(this.model.emailAddress, this.model.password, this.model.rememberMe).then(
       data => {
-        if (data === "true") {
+        if (data) {
           this.router.navigate([this.returnUrl]);
         }
       },

@@ -75,3 +75,7 @@ input[type="file"] {
     color: white;
     cursor: pointer;
 }
+
+button {
+    margin-top: 15px;
+}

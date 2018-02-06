@@ -50,7 +50,7 @@ export class DescriptionComponent implements OnInit {
 
   public addDescription: boolean = false;
   public addAttachment: boolean = false;
-  public price = '100-200euro';
+  public price = '25-50euro';
 
   constructor(
     private router: Router,

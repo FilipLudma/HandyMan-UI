@@ -1,10 +1,28 @@
 /* FONTS REFERENCES START */
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 /* FONTS REFERENCES END */
-
-/* * {
+* {
   font-family: 'Open Sans', sans-serif;
-} */
+}
+
+
+/* GLOBAL */
+.m-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.df {
+  display: flex;
+}
+.di {
+  display: inline;
+}
+.dl {
+  display: inline-block;
+}
+
+/* GLOBAL END */
 
 .preloader-wrapper {
   position: relative;

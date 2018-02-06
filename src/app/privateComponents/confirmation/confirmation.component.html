@@ -1,16 +1,16 @@
-<div class="confirmation-container container">
+<div class="confirmation-container" style="display: flow-root;">
   <!--TITLE-->
-  <h1 class="description-title">Potvrdenie</h1>
+  <h1 class="description-title text-center">Potvrdenie</h1>
   <hr>
   <!--CONFIRMATION FORM-->
-  <div class="row price-wrapper">
+  <div class="price-wrapper">
     <label for="subCategory">Odhadovana cena:</label>
     <div class="service-price">
       <p>{{_orderModel.price}}</p>
     </div>
   </div>
-  <section>
-    <form (ngSubmit)="process()" #confirmationForm="ngForm">
+  <form (ngSubmit)="process()" #confirmationForm="ngForm">
+    <div class="cd-wrapper">
       <div class="col-md-6 contact-details-info">
         <label for="firstname">Meno: </label>
         <input type="text" name="firstname" [readonly]="true" [(ngModel)]="_orderModel.firstName" #firstName="ngModel">
@@ -25,37 +25,34 @@
         <input type="text" name="address" [readonly]="true" [(ngModel)]="_orderModel.address" #address="ngModel">
       </div>
 
-      <div class="col-md-12">
-        <div class="col-md-6 contact-details-info cd-left">
-          <label for="contactNumber">Telefonne cislo: </label>
-          <input type="text" name="contactNumber" [readonly]="true" [(ngModel)]="_orderModel.contactNumber" #contactNumber="ngModel">
-        </div>
-        <div class="col-md-6 contact-details-info cd-right">
-          <label for="email">Emailova adresa: </label>
-          <input type="text" name="email" [readonly]="true" [(ngModel)]="_orderModel.email" #email="ngModel">
-        </div>
+      <div class="col-md-6 contact-details-info">
+        <label for="contactNumber">Telefonne cislo: </label>
+        <input type="text" name="contactNumber" [readonly]="true" [(ngModel)]="_orderModel.contactNumber" #contactNumber="ngModel">
       </div>
-
-      <div class="col-md-12">
-        <div class="col-md-6 contact-details-info cd-left">
-          <label for="category">Kategoria: </label>
-          <input type="text" name="category" [readonly]="true" [(ngModel)]="_orderModel.category" #category="ngModel">
-        </div>
-        <div class="col-md-6 contact-details-info cd-right">
-          <label for="subCategory">Pod kategoria: </label>
-          <input type="text" name="subCategory" [readonly]="true" [(ngModel)]="_orderModel.subCategory" #subCategory="ngModel">
-        </div>
+      <div class="col-md-6 contact-details-info">
+        <label for="email">Emailova adresa: </label>
+        <input type="text" name="email" [readonly]="true" [(ngModel)]="_orderModel.email" #email="ngModel">
       </div>
-
-      <div class="col-md-12 mb20 contact-details-info">
-        <label for="description">Popis problemu: </label>
-        <input type="text" name="description" [readonly]="true" [(ngModel)]="_orderModel.description" #description="ngModel">
+      <div class="col-md-6 contact-details-info">
+        <label for="category">Kategoria: </label>
+        <input type="text" name="category" [readonly]="true" [(ngModel)]="_orderModel.category" #category="ngModel">
       </div>
-
-      <div class="col-md-12 stepper-actions">
-        <button type="submit" class="btn btn-secondary btn-large info-btn confirm-btn" [disabled]="!confirmationForm.form.valid">Potvrdiť</button>
+      <div class="col-md-6 contact-details-info">
+        <label for="subCategory">Pod kategoria: </label>
+        <input type="text" name="subCategory" [readonly]="true" [(ngModel)]="_orderModel.subCategory" #subCategory="ngModel">
       </div>
+    </div>
 
-    </form>
-  </section>
+    <div class="col-md-12 mb20 contact-details-info">
+      <label for="description" class="df">Popis problému: </label>
+      <textarea class="cd-textarea" type="textarea" rows="5" cols="90" name="description" [readonly]="true" [(ngModel)]="_orderModel.description"
+        #description="ngModel"></textarea>
+    </div>
+
+    <div class="col-md-12 stepper-actions">
+      <button type="submit" class="btn btn-secondary btn-large info-btn confirm-btn" [disabled]="!confirmationForm.form.valid">Potvrdiť</button>
+    </div>
+
+  </form>
+
 </div>

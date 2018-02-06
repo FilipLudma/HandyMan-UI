@@ -1,7 +1,9 @@
 img { max-width: 100%; }
 
 .address-title{
-    margin-bottom: 3%;
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
 }
 
 .sebm-google-map-container {
@@ -45,13 +47,14 @@ img { max-width: 100%; }
 }
 
 @media screen and (max-width: 1090px) {
-    .address-title {
-        font-size: 25px !important;
-        margin: 0;
-    }
-
     hr {
         margin: 15px 0;
     }
 
+}
+
+@media screen and (max-width: 768px) {
+    .address-title {
+        font-size: 18px !important;
+    }
 }

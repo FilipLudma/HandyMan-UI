@@ -1,3 +1,9 @@
+.description-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
 .m-auto {
   margin: 0 auto;
 }
@@ -13,6 +19,18 @@
   font-family: inherit;
 }
 
+.description-wrapper, .description-reminder {
+  margin-bottom: 20px;
+}
+
+.description-text {
+  width: 100%;
+}
+
+:host /deep/ ui-switch .switch {
+  margin-bottom: -7.5px !important; 
+}
+
 @media screen and (max-width: 768px) {
   .cat-wrapper {
     width: 30%;
@@ -26,20 +44,23 @@
   }
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 475px) {
   .cat-wrapper {
     width: 50%;
   }
   .cat-wrapper label {
     width: 80px;
   }
-  h1 {
-    font-size: 14px;
-    font-weight: 600;
-  }
+
   .subcategory {
     padding-left: 0 !important;
   }
+
+  .description-title {
+    margin: 0;
+    font-size: 17px;
+  }
+  
 }
 
 /* RADION BTN START */
