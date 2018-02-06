@@ -36,6 +36,7 @@ export class AddressComponent implements OnInit {
 
   public id: String;
 
+  public returnUrl: any;
   public latitude: number;
   public longitude: number;
   public searchControl: FormControl;
@@ -141,8 +142,16 @@ export class AddressComponent implements OnInit {
   }
 
   public back() {
-    this.router.navigateByUrl('/prehlad');
+    this.returnUrl = localStorage.getItem('SelectedCategory');
     this.parentComponennt.stepOneStatus = "stepper-step";
+    
+    if (!!this.returnUrl) {
+      this.router.navigate(['/prehladslužieb/' + this.returnUrl.toLowerCase()]);
+    } else {
+      localStorage.removeItem('SelectedCategory');
+      localStorage.removeItem('SelectedSubCategory');
+      this.router.navigate(['/']);
+    }
   }
 
   private setCurrentPosition() {

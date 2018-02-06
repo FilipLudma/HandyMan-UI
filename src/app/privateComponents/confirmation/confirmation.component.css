@@ -1,3 +1,9 @@
+.description-title {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+
 input, .input-control {
     margin-bottom: 15px;
 }
@@ -8,22 +14,9 @@ input, .input-control {
     display: grid;
 }
 
-.cd-left {
-    padding-left: 0 !important;
-}
-
-.cd-right {
-    padding-right: 0 !important;
-}
-
-.price-wrapper{
-    float: right;
-}
-
 .price-wrapper .service-price{
     font-size: 3rem;
 }
-
 
 .btn-secondary, .btn-secondary:visited{
     color: #5091da; 
@@ -53,3 +46,22 @@ input, .input-control {
     margin-top:  15px;
     display: flex;
 }
+
+.contact-details-info label {
+    width: 120px;
+}
+
+.contact-details-info input {
+    width: 275px;
+}
+
+.cd-textarea {
+    width: 100%;
+}
+
+@media screen and (max-width: 475px) {
+    .description-title {
+      margin: 0;
+      font-size: 17px;
+    } 
+  }

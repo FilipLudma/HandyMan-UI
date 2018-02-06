@@ -122,14 +122,34 @@ $shadow-z-1: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0
     background-color: #fff;
 }
 
-// Boilerplate for presentation only
-// body {
-//     background-color: $grey-200;
-//     padding: 60px 0;
-//     font-family: 'Roboto';
-//     font-size: 14px;
-//     font-weight: 400;
-// }
+
+@media screen and (max-width: 1090px) {
+    .address-title {
+        font-size: 25px !important;
+    }
+    .stepper-step {
+        padding: 15px;
+    }
+    .stepper-stepContent {
+        font-size: 10px;
+    }
+    .stepper-step {
+        &:nth-child(1)::after {
+            height: 0.8px;
+        }
+        &:nth-child(2)::after {
+            bottom: 49px;
+            height: 0.8px;
+        }
+        &:nth-child(3)::after {
+            bottom: 49px;
+            height: 0.8px;
+        }
+        &:nth-child(4)::after {
+            height: 0.8px;
+        }
+    }
+}
 
 .stepper-actions{
     margin-top: 25px;

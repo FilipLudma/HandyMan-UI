@@ -1,64 +1,66 @@
 <div class="contact-details-container">
   <!--TITLE-->
-  <h1 class="description-title">Vyplnte kontaktné informácie</h1>
+  <h1 class="description-title text-center">Prosíme vyplňte kontaktné informácie</h1>
   <hr>
+
   <!--CONTACT FORM-->
-  <section>
-    <form (ngSubmit)="continue()" #contactForm="ngForm">
-      <div class="contact-details-info">
-        <label for="firstname">Meno: </label>
-        <input type="text" name="firstname" required [(ngModel)]="_orderModel.firstName" #firstName="ngModel">
-        <div [hidden]="firstName.valid || firstName.pristine" class="error">
-          Prosim vyplnte meno kontaktnej osoby!
+  <div class="cd-wrapper">
+    <form (ngSubmit)="continue()" #contactForm="ngForm" class="m-auto">
+      <div class="details m-auto">
+        <div class="wrapper">
+          <div class="contact-details-info">
+            <label for="firstname">Meno: </label>
+            <input type="text" name="firstname" required [(ngModel)]="_orderModel.firstName" #firstName="ngModel">
+            <div [hidden]="firstName.valid || firstName.pristine" class="error">
+              Prosíme vyplňte meno kontaktnej osoby!
+            </div>
+          </div>
+          <div class="contact-details-info">
+            <label for="lastName">Priezvisko: </label>
+            <input type="text" name="lastName" required [(ngModel)]="_orderModel.lastName" #lastName="ngModel">
+            <div [hidden]="lastName.valid || lastName.pristine" class="error">
+              Prosíme vyplňte priezvisko kontaktnej osoby!
+            </div>
+          </div>
+        </div>
+        <div class="wrapper">
+          <div class="contact-details-info">
+            <label for="contactNumber">Telefónne číslo: </label>
+            <input type="text" name="contactNumber" required [(ngModel)]="_orderModel.contactNumber" #contactNumber="ngModel">
+            <div [hidden]="contactNumber.valid || contactNumber.pristine" class="error">
+              Prosíme vyplňte telefonne cislo kontaktnej osoby!
+            </div>
+          </div>
+          <div class="contact-details-info  m-b-0">
+            <label for="email">Emailová adresa: </label>
+            <input type="text" name="email" required [(ngModel)]="_orderModel.email" #email="ngModel">
+            <div [hidden]="email.valid || email.pristine" class="error">
+              Prosíme vyplňte emailovú adresu kontaktnej osoby!
+            </div>
+          </div>
         </div>
       </div>
-      <div class="contact-details-info">
-        <label for="lastName">Priezvisko: </label>
-        <input type="text" name="lastName" required [(ngModel)]="_orderModel.lastName" #lastName="ngModel">
-        <div [hidden]="lastName.valid || lastName.pristine" class="error">
-          Prosim vyplnte priezvisko kontaktnej osoby!
-        </div>
-      </div>
-      <div class="contact-details-info">
-        <label for="contactNumber">Telefonne cislo: </label>
-        <input type="text" name="contactNumber" required [(ngModel)]="_orderModel.contactNumber" #contactNumber="ngModel">
-        <div [hidden]="contactNumber.valid || contactNumber.pristine" class="error">
-          Prosim vyplnte telefonne cislo kontaktnej osoby!
-        </div>
-      </div>
-      <div class="contact-details-info">
-        <label for="email">Emailova adresa: </label>
-        <input type="text" name="email" required [(ngModel)]="_orderModel.email" #email="ngModel">
-        <div [hidden]="email.valid || email.pristine" class="error">
-          Prosim vyplnte emailovu adresu kontaktnej osoby!
-        </div>
-      </div>
-
+      <hr>
       <div class="contact-details-info input-control">
-        <label for="orderDate">Vyberte zelany datum realizaice opravy:</label>
-        <owl-date-time name="orderDate" required
-          [(ngModel)]="_orderModel.orderDate" [dateFormat]="'YYYY-MM-DD'" [hourFormat]="'24'"
-          [locale]="svk" [min]="min" [max]="max" 
-          [type]="'calendar'" [placeHolder]="'yyyy/mm/dd'" [inputId]="'orderDate'">
+        <label for="orderDate">Želaný dátum realizácie:</label>
+        <owl-date-time name="orderDate" required [(ngModel)]="_orderModel.orderDate" [dateFormat]="'YYYY-MM-DD'" [hourFormat]="'24'"
+          [locale]="svk" [min]="min" [max]="max" [type]="'calendar'" [placeHolder]="'yyyy/mm/dd'" [inputId]="'orderDate'">
         </owl-date-time>
       </div>
 
       <div class="contact-details-info input-control">
-        <label for="orderTime">Vyberte zelany cas realizaice opravy:</label>
-        <owl-date-time name="orderTime" required
-          [(ngModel)]="_orderModel.orderTime" [type]="'timer'" [hourFormat]="'24'"
-          [dateFormat]="'hh:mm'" [placeHolder]="'hh:mm'" 
-          [inputId]="'orderTime'">
+        <label for="orderTime">Želaný čas realizaice:</label>
+        <owl-date-time name="orderTime" required [(ngModel)]="_orderModel.orderTime" [type]="'timer'" [hourFormat]="'24'" [dateFormat]="'hh:mm'"
+          [placeHolder]="'hh:mm'" [inputId]="'orderTime'">
         </owl-date-time>
       </div>
-
 
       <!--NAVIGATION BUTTONS-->
       <div class="stepper-actions">
-        <a class="btn btn-default btn-lg btn-simple mbn" (click)="back()">Spať</a>
-        <button type="submit" class="btn btn-info btn-lg btn-simple pull-right mbn" [disabled]="!contactForm.form.valid">Pokračovať</button>
+        <a class="btn btn-default btn-md btn-simple mbn" role="button" (click)="back()">Spať</a>
+        <button type="submit" class="btn btn-info btn-md btn-simple pull-right mbn" [disabled]="!contactForm.form.valid">Pokračovať</button>
       </div>
 
     </form>
-  </section>
+  </div>
 </div>

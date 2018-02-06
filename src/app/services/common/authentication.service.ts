@@ -10,11 +10,11 @@ export class AuthenticationService {
     constructor(private http: Http, private config: Config) { }
 
     login(emailAddress: string, password: string, rememberMe: boolean) {
-        return this.http.post(this.config.apiBaseUrl + 'account/login', { email: emailAddress, password: password, rememberMe: false })
+        return this.http.post(this.config.UserUrl + 'user/authenticate', { email: emailAddress, password: password, rememberMe: false })
             .map((response: any) => {
-                if (response._body === "true") {
-                    localStorage.setItem('currentUser', emailAddress);
-                    return response._body;
+                if (!!response) {
+                    localStorage.setItem('currentUser', response);
+                    return true;
                 }
             }).catch((error: Response | any) => {
                 return Observable.throw(error.json());
@@ -22,10 +22,18 @@ export class AuthenticationService {
     }
 
     register(model: any) {
-        console.log(model)
-        return this.http.post(this.config.apiBaseUrl + 'account/register', { email: model.emailAddress, password: model.password, confirmPassword: model.confirmPassword })
+        return this.http.post(this.config.UserUrl + 'account/register', { email: model.emailAddress, password: model.password, confirmPassword: model.confirmPassword })
             .map((response: any) => {
                 return JSON.parse(response._body);
+            }).catch((error: Response | any) => {
+                return Observable.throw(error.json());
+            }).toPromise();
+    }
+
+    loggedin() {
+        return this.http.get(this.config.apiBaseUrl + 'account/loggedin')
+            .map((response: any) => {
+                return response;
             }).catch((error: Response | any) => {
                 return Observable.throw(error.json());
             }).toPromise();
