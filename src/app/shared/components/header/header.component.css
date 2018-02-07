@@ -1,9 +1,10 @@
 .user-info{
     padding: 15px;
 }
-.user-logout
+.logout
 {
-    cursor: pointer;
+	cursor: pointer;
+	font-weight: 600;
 }
 
 .navbar{
@@ -14,8 +15,13 @@
     z-index: 1003 !important;
 }
 
+#header {
+	margin-bottom: 15px;
+}
+
 .fixed {    
-    height: 30px;    
+	height: 30px;    
+	margin-bottom: -15px;
     position: fixed;
     top: 0%;
 	opacity: 1;
@@ -52,5 +58,15 @@
 	}
 	100% {
 		opacity: 1;
+	}
+}
+
+@media screen and (max-width: 480px){
+	.navbar-header {
+		display: inline-block;
+		margin-top: 5px;
+	}
+	.logout {
+		float: right;
 	}
 }

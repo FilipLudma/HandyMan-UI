@@ -51,6 +51,7 @@ export class DescriptionComponent implements OnInit {
   public addDescription: boolean = false;
   public addAttachment: boolean = false;
   public price = '25-50euro';
+  public canContinue: any = false;
 
   constructor(
     private router: Router,
@@ -69,15 +70,6 @@ export class DescriptionComponent implements OnInit {
     }).catch(error => {
       console.log("Got error:", error);
     });
-
-    // this.orderService.getOrder('/Order', this.id).then(response => {
-    //   console.log('GET ORDER RESPONSE::', response);
-    //   if (!!response) {
-    //     // this.orderModel = response;
-    //   }
-    // }).catch(error => {
-    //   console.log("Got error:", error);
-    // });
   }
 
   public onDescriptionChange() {

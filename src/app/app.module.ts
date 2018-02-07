@@ -33,6 +33,7 @@ import { HeaderComponentModule } from 'app/shared/components/header/header.modul
 
 import { GoogleLoginProvider } from "angular4-social-login";
 import { SocialLoginModule, AuthServiceConfig } from "angular4-social-login";
+import {ToastModule} from 'ng2-toastr/ng2-toastr';
 
 let config = new AuthServiceConfig([
   {
@@ -73,7 +74,8 @@ export function provideConfig() {
     BrowserAnimationsModule,
     HeaderComponentModule,
     routing,
-    SocialLoginModule
+    SocialLoginModule,
+    ToastModule.forRoot()
   ],
   providers: [
     OrderObjectService,

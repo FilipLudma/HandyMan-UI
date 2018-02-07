@@ -22,7 +22,7 @@ export class CustomComponent implements OnInit {
   private populateSteps(steps: HowItWorksModel[]) {
     // 1
     var step1 = new HowItWorksModel();
-    step1.stepName = "Prihlásanie/Registrácia";
+    step1.stepName = "Prihlásanie";
     step1.stepDescription = "Prihláste sa pomocou svojho gmailového účtu, alebo cez krátky registračný formulár.";
     step1.stepImgUrl = "http://frontendfactory.com/wp-content/themes/frontendfactory/images/icons/work-submite.png"
 
@@ -34,7 +34,7 @@ export class CustomComponent implements OnInit {
     
     // 3
     var step3 = new HowItWorksModel();
-    step3.stepName = "Vybrať čas a miesto";
+    step3.stepName = "Čas a miesto";
     step3.stepDescription = "Vyberte si z kalendára čas kedy sa u Vás zastavíme a miesto kde vás najdeme.";
     step3.stepImgUrl = "http://frontendfactory.com/wp-content/themes/frontendfactory/images/icons/work-analyze.png";
     

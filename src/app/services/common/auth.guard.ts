@@ -15,6 +15,7 @@ export class AuthGuard implements CanActivate {
             return true;
         }).catch(error => {
             //console.log("Got error:", error);
+            localStorage.removeItem('currentUser');
             this._router.navigate(['/prihlasenie'], { queryParams: { returnUrl: state.url } });
             return false;
         });

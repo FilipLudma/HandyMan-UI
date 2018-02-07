@@ -30,14 +30,16 @@
       <span class="avatar">
         <img src="../../../images/Index/logo.png" alt="">
       </span>
-      <p class="info-desc text-center">Nie každý má vždy možnosť pomôcť si sám <br> Sme partia mladých ľudí, ktorá má rovnaký cieľ - pomáhať tým, ktorí to potrebujú
-        Hľadáme riešenia, radíme, pomáhame priamo na mieste
+      <p class="info-desc text-center">Nie každý má vždy možnosť pomôcť si sám
+        <br> Sme partia mladých ľudí, ktorá má rovnaký cieľ - pomáhať tým, ktorí to potrebujú Hľadáme riešenia, radíme, pomáhame
+        priamo na mieste
       </p>
     </header>
 
     <footer>
-      <a pageScroll href="#hiw-scrt" class="button scrolly">Dozvedieť sa viac</a>
+        <a pageScroll href="#hiw-scrt" class="button scrolly">Dozvedieť sa viac</a>
     </footer>
+        <a *ngIf="!isLogged" class="button login"  [routerLink]="['/prihlasenie']">Prihlásiť sa</a>
   </section>
 
 </div>

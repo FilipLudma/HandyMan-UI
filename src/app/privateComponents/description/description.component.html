@@ -55,20 +55,6 @@
       </ng-template>
     </div>
 
-    <!--SUBCATEGORY DESCRIPTION-->
-    <!-- <div class="subCategory-description">
-      <div class="categoryType{{category.categoryType}}" *ngFor="let category of categories; let ind = index">
-        <div class="row" *ngFor="let subCategory of category.orderSubCategories">
-          <ng-template [ngIf]="subCategory.subCategoryName == displaySubCategory">
-            <div class="alert alert-info categoryInfo" [@fadeInOut]>
-              <strong>{{subCategory.subCategoryName}}</strong> Indicates a neutral informative change or action.
-            </div>
-          </ng-template>
-        </div>
-      </div>
-    </div> -->
-
-
     <!--DESCRIPTION SECTION-->
     <div *ngIf="displayDescriptionSection" class="description-wrapper">
       <div class="description-reminder">
@@ -109,6 +95,6 @@
   <!--NAVIGATION BUTTONS-->
   <div class="stepper-actions">
     <a class="btn btn-default btn-md btn-simple mbn" (click)="back()">Spať</a>
-    <a class="btn btn-info btn-md btn-simple pull-right mbn" (click)="continue()">Pokračovať</a>
+    <a class="btn btn-info btn-md btn-simple pull-right mbn" [class.disabled]="(!addDescription && !addAttachment)" (click)="continue()">Pokračovať</a>
   </div>
 </div>

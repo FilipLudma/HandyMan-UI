@@ -2,6 +2,7 @@ import { Component, HostListener, Inject, OnInit, style, animate, transition, tr
 import { DOCUMENT } from '@angular/platform-browser';
 import { User } from 'app/models/user/user';
 import { Router, ActivatedRoute } from '@angular/router';
+import { DoCheck } from '@angular/core/src/metadata/lifecycle_hooks';
 
 @Component({
   selector: 'app-header',
@@ -22,10 +23,10 @@ import { Router, ActivatedRoute } from '@angular/router';
     ])
   ]
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, DoCheck {
   public navIsFixed: boolean = true;
-  public currentUser: User;
   public emailAddress: String = "";
+  public currentUser: any = localStorage.currentUser;
 
   @Input()
   navIsVisible: boolean = false;
@@ -37,20 +38,11 @@ export class HeaderComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     @Inject(DOCUMENT) private document: Document) {
-    this.currentUser = JSON.parse(JSON.stringify(localStorage.getItem('currentUser')));
-    if (this.currentUser != null) {
-      this.emailAddress = this.currentUser["emailAddress"];
-    }
-  }
 
-  ngOnInit() {
-    if (this.document.getElementById('text') == null) {
-      this.navIsVisible = true;
-      this.isPrivate = true;
-    }
   }
 
   logOut() {
+    localStorage.removeItem('currentUser');
     this.router.navigateByUrl('/prihlasenie');
   }
 
@@ -67,6 +59,30 @@ export class HeaderComponent implements OnInit {
         } else if (this.navIsVisible && number < firstSectionOffset) {
           this.navIsVisible = false;
         }
+      }
+    }
+  }
+
+  ngOnInit() {
+    if (this.document.getElementById('text') == null) {
+      this.navIsVisible = true;
+    }
+  }
+
+  ngDoCheck() {
+    if (this.route.component['name'] === "NewOrderComponent") {
+      this.navIsFixed = false;
+    }
+
+    if (!!this.currentUser) {
+      try {
+        var temp = JSON.parse(localStorage.currentUser);
+        if (this.route.component['name'] === "NewOrderComponent" && !!temp.token) {
+          this.isPrivate = true;
+        }
+      }
+      catch (error) {
+        console.log('PROBLEM WITH HEADER JSON')
       }
     }
   }
