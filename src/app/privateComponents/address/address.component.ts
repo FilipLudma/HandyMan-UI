@@ -3,7 +3,7 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { SharedModule } from '../../shared/shared.module'
-import { MapsAPILoader } from "angular2-google-maps/core";
+import { MapsAPILoader } from "@agm/core";
 
 import { OrderService } from '../../services/order/order.service';
 import { OrderObjectService } from '../../services/order/order-object.service';

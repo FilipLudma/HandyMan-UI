@@ -15,9 +15,9 @@
         spellcheck="off" #search formControlName="address">
     </div>
 
-    <sebm-google-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
-      <sebm-google-map-marker [latitude]="latitude" [longitude]="longitude"></sebm-google-map-marker>
-    </sebm-google-map>
+    <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+      <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+    </agm-map>
 
     <div class="stepper-actions">
       <a class="btn btn-default btn-md btn-simple mbn" (click)="back()">Spať</a>

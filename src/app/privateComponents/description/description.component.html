@@ -66,7 +66,8 @@
           <div class="description-wrapper">
             <div class="description-switch-wrapper">
               <label for="description-attachment-switch">Pridať popis problému:</label>
-              <ui-switch class="description-toggle" color="#4696e5" [(ngModel)]="addDescription" name="addDescription" size="small"></ui-switch>
+              <input type="checkbox" id="desc" [(ngModel)]="addDescription" name="addDescription"/>
+              <label for="desc"></label>
             </div>
             <div class="description-container" *ngIf="addDescription" [@fadeInOut]>
               <textarea class="description-text" id="description" rows="6" cols="95" placeholder="Stručne popíšte Váš problém" [(ngModel)]="orderModel.description"
@@ -79,8 +80,9 @@
           <!--ATTACHMENTS-->
           <div class="description-image-wrapper">
             <div class="description-switch-wrapper">
-              <label for="description-switch">Pridať fotku</label>
-              <ui-switch class="description-toggle" color="#4696e5" [(ngModel)]="addAttachment" name="addAttachment" size="small"></ui-switch>
+              <label for="description-switch">Pridať fotku:</label>
+              <input type="checkbox" id="attach" [(ngModel)]="addAttachment" name="addAttachment"/>
+              <label for="attach"></label>
             </div>
             <div class="attachment-container" *ngIf="addAttachment" [@fadeInOut]>
               <app-image-upload></app-image-upload>

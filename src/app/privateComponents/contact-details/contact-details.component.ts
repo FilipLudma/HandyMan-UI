@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { NewOrderComponent } from '../new-order/new-order.component'
 import { DescriptionComponent } from '../description/description.component'
-import { DatepickerModule } from 'angular2-material-datepicker'
+//import { DatepickerModule } from 'angular2-material-datepicker'
 import { OrderService } from '../../services/order/order.service';
 import { OrderObjectService } from '../../services/order/order-object.service';
 import { OrderModel } from "app/models/order/orderModel";
@@ -37,7 +37,7 @@ export class ContactDetailsComponent implements OnInit {
   // Min date
   public min: Date = new Date();
   // Max date = min date + 14 days
-  public max = new Date(+this.min + 12096e5);
+  public max = new Date(+ this.min + 12096e5);
 
   public currentUser: User;
 
