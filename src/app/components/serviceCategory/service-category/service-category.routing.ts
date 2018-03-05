@@ -12,7 +12,7 @@ const routes: Routes = [
             { path: 'opraváreň', component: ServiceCategoryWorkerComponent },
             { path: 'nábytkáreň', component: ServiceCategoryWorkerComponent },
             { path: 'záhradkáreň', component: ServiceCategoryWorkerComponent },
-            { path: 'bezdrotáreň', component: ServiceCategoryWorkerComponent },
+            { path: 'organizáreň', component: ServiceCategoryWorkerComponent },
             { path: 'sťahováreň', component: ServiceCategoryWorkerComponent },
             { path: 'čistiareň', component: ServiceCategoryWorkerComponent },
             { path: 'pomôckáreň', component: ServiceCategoryWorkerComponent }

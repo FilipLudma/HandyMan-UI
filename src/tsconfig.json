@@ -18,7 +18,7 @@
     "typeRoots": [
       "../node_modules/@types"
     ]
-  },
+  }
   // "files": [
   //   "../node_modules/angular2-ui-switch/src/index.ts",
   //   "../src/main.ts"

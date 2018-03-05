@@ -40,21 +40,17 @@
           </div>
         </div>
       </div>
-      <hr>
-      <!-- <div class="contact-details-info input-control">
-        <label for="orderDate">Želaný dátum realizácie:</label>
-        <owl-date-time name="orderDate" required [(ngModel)]="_orderModel.orderDate" [dateFormat]="'YYYY-MM-DD'" [hourFormat]="'24'"
-          [locale]="svk" [min]="min" [max]="max" [type]="'calendar'" [placeHolder]="'yyyy/mm/dd'" [inputId]="'orderDate'">
-        </owl-date-time>
+
+      <div class="wrapper">
+        <div class="contact-details-info input-control">
+          <label>
+          Želaný čas realizácie:
+          <input [owlDateTimeTrigger]="dt5" [owlDateTime]="dt5" [(ngModel)]="_orderModel.orderDate" name="orderDate" style="margin-top:5px;padding: 5px;">
+          <owl-date-time [pickerMode]="'dialog'" #dt5></owl-date-time>
+        </label>
+        </div>
       </div>
-
-      <div class="contact-details-info input-control">
-        <label for="orderTime">Želaný čas realizaice:</label>
-        <owl-date-time name="orderTime" required [(ngModel)]="_orderModel.orderTime" [type]="'timer'" [hourFormat]="'24'" [dateFormat]="'hh:mm'"
-          [placeHolder]="'hh:mm'" [inputId]="'orderTime'">
-        </owl-date-time>
-      </div> -->
-
+      <hr>
       <!--NAVIGATION BUTTONS-->
       <div class="stepper-actions">
         <a class="btn btn-default btn-md btn-simple mbn" role="button" (click)="back()">Spať</a>

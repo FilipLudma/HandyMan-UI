@@ -118,21 +118,20 @@ export class AddressComponent implements OnInit {
     this.myForm.value['address'] = this.searchElementRef.nativeElement.value;
 
     // Save and redirect on successful validation, otherwise display an error message/modal
-    if (Math.max(intDistance, 0) < 35000 && this.myForm.value['address'] != '') {
+    if (Math.max(intDistance, 0) < 35000 && this.myForm.value['address'] !== '') {
 
       this.newOrder.address = this.myForm.value['address'];
       var oderToSave = this.orderObjectService.updateOrder(this.newOrder);
 
       this.orderService.saveOrder('/createOrderWithBody', oderToSave).then(response => {
         this.newOrder.id = response;
-        if (this.newOrder.id != undefined && this.newOrder.id != '') {
-          console.log("NEW ID" + this.newOrder.id);
-          this.router.navigate(['/novaPorucha/popis', this.newOrder.id]);
-          this.parentComponennt.stepOneStatus = "stepper-step stepper-step-isValid";
-          this.parentComponennt.stepTwoStatus = "stepper-step stepper-step-isActive";
-        }
-      }).catch(error => {
-        console.log("Got error:", error);
+          if (this.newOrder.id != undefined && this.newOrder.id != '') {
+            this.router.navigate(['/novaPorucha/popis', this.newOrder.id]);
+            this.parentComponennt.stepOneStatus = "stepper-step stepper-step-isValid";
+            this.parentComponennt.stepTwoStatus = "stepper-step stepper-step-isActive";
+          }
+        }).catch(error => {
+        //   console.log("Got error:", error);
       });
     } else if (this.myForm.value['address'] == '') {
       return null;
@@ -144,7 +143,7 @@ export class AddressComponent implements OnInit {
   public back() {
     this.returnUrl = localStorage.getItem('SelectedCategory');
     this.parentComponennt.stepOneStatus = "stepper-step";
-    
+
     if (!!this.returnUrl) {
       this.router.navigate(['/prehladslužieb/' + this.returnUrl.toLowerCase()]);
     } else {

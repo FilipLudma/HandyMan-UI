@@ -1,25 +1,33 @@
 <div class="container" id="hiw-scrt" style="padding-top: 50px;">
     <header class="header-section">
         <h2 class="title-label">ako to funguje</h2>
-        <h4 class="sub-title-label">Je dôležité aby sme vedeli presne aký máte problém, kam Vám môžeme prísť pomôcť a v akom čase Vám to najviac vyhovuje. Pripravili sme pre Vás štyri jenoduche kroky.</h4>
+        <h4 class="sub-title-label">Je dôležité aby sme vedeli presne aký máte problém, kam Vám môžeme prísť pomôcť a v akom čase Vám to najviac vyhovuje.
+            Pripravili sme pre Vás štyri jenoduche kroky.</h4>
     </header>
 
-    <section class="how-it-works-section">
-        <div class="order-step-container" *ngFor="let step of _steps; let ind = index">
-            <div class="step-number-wrapper">
-                <div class="step-number">{{ind + 1}}</div>
-            </div>
-            <div class="step-description">
-                <div class="step-table-wrapper">
-                    <div class="verticle_align">
-                        <h4 class="h4">{{step.stepName}}</h4>
-                        <p class="step-description-text">{{step.stepDescription}}</p>
-                        <span class="step-icon-wrapper">
+    <div class="how-it-works-section">
+        <div class="row">
+            <div class="order-step-container" *ngFor="let step of _steps; let ind = index">
+                <div class="step-number-wrapper">
+                    <div class="step-number">{{ind + 1}}</div>
+                </div>
+                <div class="step-description">
+                    <div class="step-table-wrapper">
+                        <div class="verticle_align">
+                            <h4 class="h4">{{step.stepName}}</h4>
+                            <p class="step-description-text">{{step.stepDescription}}
+                            </p>
+
+                            <p *ngIf="ind === 0" class="step-description-text form-link">
+                                <a [routerLink]="['/novaPorucha/adresa']" role="link" class="fill-form-link">Vyplniť formulár</a>
+                            </p>
+                            <span class="step-icon-wrapper">
                           <img src="{{step.stepImgUrl}}" alt="">
                       </span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 </div>

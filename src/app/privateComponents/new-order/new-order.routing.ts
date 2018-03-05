@@ -9,7 +9,7 @@ import { ConfirmationComponent } from '../confirmation/confirmation.component'
 import { AuthGuard } from '../../services/common/auth.guard';
 
 const routes: Routes = [
-  { path: '', component: NewOrderComponent, canActivate: [AuthGuard], 
+  { path: '', component: NewOrderComponent, 
   // { path: '', component: NewOrderComponent, 
     children: [
       { path: '', redirectTo: 'novaPorucha', pathMatch: 'full' },

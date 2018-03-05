@@ -25,10 +25,6 @@ h2:after {
     background: #5091da;
 } 
 
-.how-it-works-section {
-    padding: 50px 0;
-}
-
     .how-it-works-section .content-section:before,
     .how-it-works-section .content-section:after {
         content: " ";
@@ -50,10 +46,8 @@ h2:after {
     }
 
     .how-it-works-section .order-step-container {
-        position: relative;
-        display: block;
-        float: left;
-        width: 25%;
+        display: inline-block;
+        width: 33.3%;
         margin-top: 60px;
         text-align: center;
     }
@@ -192,18 +186,6 @@ h2:after {
             display: none !important;
         }
 
-        .how-it-works-section .order-step-container:before {
-            content: '';
-            width: 236px;
-            height: 60px;
-            position: absolute;
-            top: -60px;
-            left: 60%;
-            z-index: 10;
-            background: url("../../../images/HowItWorks/work-box.png") no-repeat;
-            /*background: url("../../assets/images/801.png") no-repeat;*/
-        }
-
 .step-description-text{
     font-family: 'Quicksand', sans-serif;
 }
@@ -238,6 +220,16 @@ h2:after {
         line-height: 1.3;
         font-size: 18px;
     }
+
+.fill-form-link{
+    color: #fff;
+    font-size: 18px;   
+    cursor: pointer;
+    text-decoration: underline;
+}    
+.form-link:hover {
+    transform: scale(1.1);
+}
 
 @media screen and (max-width: 480px) {
     .how-it-works-section {

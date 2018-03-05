@@ -138,11 +138,11 @@ $shadow-z-1: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0
             height: 0.8px;
         }
         &:nth-child(2)::after {
-            bottom: 50px;
-            height: 0.8px;
+            bottom: 49px;
+            height: 0.8px;  
         }
         &:nth-child(3)::after {
-            bottom: 50px;
+            bottom: 49px;
             height: 0.8px;
         }
         &:nth-child(4)::after {

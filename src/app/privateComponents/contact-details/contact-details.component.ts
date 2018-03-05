@@ -34,6 +34,7 @@ export class ContactDetailsComponent implements OnInit {
     monthNamesShort: ["Jan", "Feb", "Mar", "Apr", "Maj", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dec"]
   };
 
+  
   // Min date
   public min: Date = new Date();
   // Max date = min date + 14 days
@@ -70,10 +71,6 @@ export class ContactDetailsComponent implements OnInit {
   public continue() {
     if (this._orderModel.orderTime != undefined
       && this._orderModel.orderDate != undefined) {
-      var hours = this._orderModel.orderTime.getHours();
-      var minutes = this._orderModel.orderTime.getMinutes();
-
-      this._orderModel.orderDate.setHours(hours, minutes)
       this._orderModel.orderTime = this._orderModel.orderDate;
     }
 

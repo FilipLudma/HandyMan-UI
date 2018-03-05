@@ -23,6 +23,8 @@ export class ConfirmationComponent implements OnInit {
   private _sub;
   public _orderModel: OrderModel = new OrderModel();
   private _subscription: any;
+  public order: any = {};
+  public showOverlay: any = false;
 
   constructor(
     private _router: Router,
@@ -37,7 +39,6 @@ export class ConfirmationComponent implements OnInit {
 
     this._orderService.getOrder('/Order', this._id).then(response => {
       this._orderModel = response;
-      console.log(this._orderModel);
     }).catch(error => {
       console.log("Got error:", error);
     });
@@ -45,9 +46,20 @@ export class ConfirmationComponent implements OnInit {
 
   process() {
     if (this._id != undefined && this._id != null && this._id != '') {
-      this._emailService.sendEmail('/SendEmail', this._id);
+      this._emailService.sendEmail('/SendEmail', this._id)
+        .then(response => {
+          this.showOverlay = true;
+        }).catch(error => {
+          this.showOverlay = false;
+          console.log("Got error:", error);
+        });
     } else {
+      this.showOverlay = false;
       alert('Lutujeme niekde nastala chyba, prosim skuste vasu objednaku potvrdit znova.')
     }
+  }
+
+  redirectHome() {
+    this._router.navigate(['/']);
   }
 }

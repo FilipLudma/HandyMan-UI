@@ -6,14 +6,14 @@
     <!-- <div class="alert alert-danger">
       <p> Opat treba vymysliet popis pre zakaznika, aby vedel co treba a co netreba vyplnit.</p>
     </div> -->
-    <ng-template [ngIf]="displayDescriptionSection">
+    <!-- <ng-template [ngIf]="displayDescriptionSection">
       <div class="form-group description-form price-wrapper" [@fadeInOut]>
         <label for="subCategory">Odhadovaná cena:</label>
         <div class="service-price">
           <p>{{price}}</p>
         </div>
       </div>
-    </ng-template>
+    </ng-template> -->
   </div>
 
   <!--DESCRIPTION FORM-->
@@ -65,7 +65,7 @@
           <!--DESCRIPTION-->
           <div class="description-wrapper">
             <div class="description-switch-wrapper">
-              <label for="description-attachment-switch">Pridať popis problému:</label>
+              <label for="description-attachment-switch">Pridať popis:</label>
               <input type="checkbox" id="desc" [(ngModel)]="addDescription" name="addDescription"/>
               <label for="desc"></label>
             </div>

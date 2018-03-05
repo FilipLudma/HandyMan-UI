@@ -20,9 +20,15 @@
         <input type="text" name="lastName" [readonly]="true" [(ngModel)]="_orderModel.lastName" #lastName="ngModel">
       </div>
 
-      <div class="col-md-12 contact-details-info">
-        <label for="address">Adresa: </label>
-        <input type="text" name="address" [readonly]="true" [(ngModel)]="_orderModel.address" #address="ngModel">
+      <div class="cd-wrapper">
+        <div class="col-md-6 contact-details-info">
+          <label for="address">Adresa: </label>
+          <input type="text" name="address" [readonly]="true" [(ngModel)]="_orderModel.address" #address="ngModel">
+        </div>
+        <div class="col-md-6 contact-details-info">
+          <label for="orderDate">Dátum realizácie : </label>
+          <input type="text" name="orderDate" [readonly]="true" [(ngModel)]="_orderModel.orderDate" #orderDate="ngModel">
+        </div>
       </div>
 
       <div class="col-md-6 contact-details-info">
@@ -55,4 +61,12 @@
 
   </form>
 
+</div>
+
+<div id="overlay" [ngClass]="{'overlay-display':showOverlay}" (click)="redirectHome()" style="background-color:white; border-radius: 15px; opacity:0.9;">
+  <div id="text" class="text-center">
+    <h3 class="text-center" style="color: black">Váš problém bol úspešne odoslaný na preskúmane.</h3>
+    <hr>
+    <h4 class="text-center" style="color: black">V dohladnej dobe Vás budeme kontakovať.</h4>    
+  </div>
 </div>

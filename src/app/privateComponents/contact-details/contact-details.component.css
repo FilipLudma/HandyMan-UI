@@ -60,6 +60,10 @@ input.ng-invalid {
   cursor: pointer;
 }
 
+:host /deep/ .owl-dt-control-button  {
+  color: red !important;
+}
+
 @media screen and (max-width: 475px) {
   .description-title {
     margin: 0;

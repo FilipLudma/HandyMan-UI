@@ -3,7 +3,7 @@ import { Ng2PageScrollModule } from 'ng2-page-scroll';
 import { SharedModule } from '../../shared/shared.module'
 import { CommonModule } from '@angular/common';
 import { CarouselComponentModule } from '../../shared/components/carousel/carousel.model';
-import { CarouselModule } from 'ng2-bootstrap/';
+import { CarouselModule } from 'ngx-bootstrap/';
 
 import { routing } from './orders.routing';
 

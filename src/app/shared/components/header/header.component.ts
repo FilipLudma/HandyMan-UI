@@ -78,7 +78,7 @@ export class HeaderComponent implements OnInit, DoCheck {
       try {
         var temp = JSON.parse(localStorage.currentUser);
         if (this.route.component['name'] === "NewOrderComponent" && !!temp.token) {
-          this.isPrivate = true;
+          this.isPrivate = false;
         }
       }
       catch (error) {

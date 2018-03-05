@@ -65,6 +65,8 @@ export class DescriptionComponent implements OnInit {
       this.id = params['id']; // (+) converts string 'id' to a number
     });
 
+    this.getOrder();
+
     this.categoryService.getCategories('/GetCategories').then(response => {
       this.categories = response;
     }).catch(error => {
@@ -167,5 +169,14 @@ export class DescriptionComponent implements OnInit {
     // const blobUrl = URL.createObjectURL(blob);
 
     return imgBlobs;
+  }
+
+  getOrder() {
+    this.orderService.getOrder('/Order', this.id).then(response => {
+      this.orderModel = response;
+      console.log("this.orderModel:", this.orderModel);
+    }).catch(error => {
+      console.log("Got error:", error);
+    });
   }
 }
