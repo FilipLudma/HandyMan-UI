@@ -39,6 +39,8 @@ export class ConfirmationComponent implements OnInit {
 
     this._orderService.getOrder('/Order', this._id).then(response => {
       this._orderModel = response;
+
+      this._orderModel.price = this._orderModel.price.split('euro')[0];
     }).catch(error => {
       console.log("Got error:", error);
     });

@@ -255,7 +255,8 @@ h4.heading:after {
 }
 
 .team-member .image {
-  margin-bottom: 20px;
+  width: 65%;
+  margin: 0 auto 20px auto;
 }
 
 .team-member p.role {

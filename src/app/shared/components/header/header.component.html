@@ -1,9 +1,9 @@
 <header id="header" class="header" [class.fixed]="navIsFixed">
   <div class="sticky-wrapper" *ngIf="navIsVisible" [@fadeInOut]="navIsVisible">
     <div role="navigation" class="navbar navbar-default">
-      
+
       <div class="container">
-        
+
         <div class="navbar-header">
           <a pageScroll href="#text" class="navbar-brand scroll-to">
             <img [class.logoAdjust]="!navIsFixed" src="../../../images/home/img/logo.png" alt="">
@@ -13,6 +13,9 @@
         <!-- PUBLIC -->
         <div class="navbar-collapse navbar-right fa categories" *ngIf="!isPrivate" [class.navTransparent]="!navIsFixed">
           <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a pageScroll href="#about-us">Prečo Sme Tu</a>
+            </li>
             <li>
               <a pageScroll href="#text">Ako to funguje</a>
             </li>

@@ -9,8 +9,6 @@ import { PortfolioModule } from '../portfolio/portfolio.module'
 import { ServicesModule } from '../services/services.module'
 import { ModalModule } from "ng2-modal";
 
-
-import { AboutUsComponent } from '../about-us/about-us.component'
 import { ServicesComponent } from '../services/services.component'
 import { CustomComponent } from '../custom/custom.component';
 import { OurTeamComponent } from '../our-team/our-team.component';
@@ -25,7 +23,7 @@ import { ContactComponent } from '../contact/contact.component';
     ModalModule,
     Ng2PageScrollModule.forRoot()],
   declarations: [
-    AboutUsComponent],
+    ],
   providers: []
 })
 export class IntroModule { }

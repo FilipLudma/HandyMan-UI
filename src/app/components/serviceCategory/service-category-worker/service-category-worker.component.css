@@ -91,7 +91,7 @@ h2 {
     }
 
 .box-services { 
-    padding: 30px 20px 20px;
+    padding: 20px 20px 20px;
     border-bottom: 2.5px solid #d4d4d4;
     background: #fff;
     cursor: pointer;
@@ -101,7 +101,6 @@ h2 {
         text-align: center;
         font-size: 25px;
         color: #000;
-        margin-top: 20px;
     }
 
     .box-services .icon h4 {
@@ -170,13 +169,23 @@ h2 {
         height:auto;
     }
     
-    .service-category-detai {
+    .service-category-detail {
         background-attachment: scroll;
+    }
+
+    .service-category-header{
+        padding-top: 0 !important;
     }
 
     .other-services {
         margin-left: 15px;
         padding-left: 15px;
+    }
+
+    h2 {
+        text-transform: uppercase;
+        font-size: 45px;
+        padding-bottom: 0;
     }
 }
 

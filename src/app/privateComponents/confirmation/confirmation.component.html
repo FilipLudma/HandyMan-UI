@@ -6,7 +6,7 @@
   <div class="price-wrapper">
     <label for="subCategory">Odhadovana cena:</label>
     <div class="service-price">
-      <p>{{_orderModel.price}}</p>
+      <p>&euro;{{_orderModel.price}}</p>
     </div>
   </div>
   <form (ngSubmit)="process()" #confirmationForm="ngForm">

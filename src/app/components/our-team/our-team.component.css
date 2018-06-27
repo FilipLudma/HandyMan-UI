@@ -7,3 +7,22 @@
 img {
     border-radius: 5%;
 }
+
+.team-member p {
+    transition: opacity 1s ease-out;
+    opacity: 0; 
+    height: 0;
+    overflow: hidden;   
+}
+
+.team-member:hover p {
+    opacity: 1;
+    height: auto;
+}
+
+@media screen and (max-width: 767px) {  
+    .team-member p{
+        opacity: 1;
+        height: auto;
+    }
+}

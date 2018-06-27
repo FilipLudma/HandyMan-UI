@@ -20,6 +20,7 @@ import { CustomComponent } from 'app/components/custom/custom.component';
 import { ContactComponent } from 'app/components/contact/contact.component';
 import { ServicesComponent } from 'app/components/services/services.component';
 import { OurTeamComponent } from 'app/components/our-team/our-team.component';
+import { AboutUsComponent } from "app/components/about-us/about-us.component";
 
 import { CategoryService } from './services/category/category.service'
 import { OrderObjectService } from './services/order/order-object.service'
@@ -33,7 +34,7 @@ import { HeaderComponentModule } from 'app/shared/components/header/header.modul
 
 import { GoogleLoginProvider } from "angular4-social-login";
 import { SocialLoginModule, AuthServiceConfig } from "angular4-social-login";
-import {ToastModule} from 'ng2-toastr/ng2-toastr';
+import { ToastModule } from 'ng2-toastr/ng2-toastr';
 
 let config = new AuthServiceConfig([
   {
@@ -59,6 +60,7 @@ export function provideConfig() {
     // HeaderComponent,
     IntroComponent,
     HomeComponent,
+    AboutUsComponent,
     CustomComponent,
     ContactComponent,
     ServicesComponent,

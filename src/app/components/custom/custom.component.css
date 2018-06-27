@@ -47,7 +47,7 @@ h2:after {
 
     .how-it-works-section .order-step-container {
         display: inline-block;
-        width: 33.3%;
+        width: 25%;
         margin-top: 60px;
         text-align: center;
     }
@@ -211,10 +211,11 @@ h2:after {
 
     .header-section .title-label {
         text-transform: uppercase;
-        padding-bottom: 25px;
+        padding-bottom: 10px;
     }
 
     .header-section .sub-title-label {
+        text-transform: none !important;
         font-weight: 300;
         color: #666666;
         line-height: 1.3;
